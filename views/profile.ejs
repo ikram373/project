@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/aa9b0d42bd.js" crossorigin="anonymous"></script>
+    <title>Profile-Page</title>
+    <link rel="stylesheet" href="/profile.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo"><img src="/Algerian Crafters (5).png" alt=""></div>
+          
+                <ul class="first">
+                    <li><a href="/accueil" class="nav-item1">Accueil</a></li>
+                    <li><a href="/posteService" class="nav-item2">Poster un service </a></li>
+                
+                </ul>
+                <ul class="second">
+                    <li><a href="#" class="nav-item3">Notification</a></li>
+                    <li><a href="/profileUser" class="nav-item4">Profile</a></li> 
+                </ul>
+                <div class="search-container">
+                    <form action="page.php" class="search-bar">
+                        <i class="fa fa-search"></i>
+                      <input type="text" placeholder="Search.." name="search" class="input">
+                      <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+                    </form>
+                </div>
+
+            </nav>
+            <div class="contain">
+            <div class="description">
+                <p class="profile"> Photo de Profile</p>
+                <h3 class="full-name"><%= artisan.fullname %> </h3>
+                <h3 class="métier">
+                    <%= artisan.metier %>
+                </h3>
+                <h3 class="wilaya"><i class="fa-solid fa-location-dot"></i> <%= artisan.wilaya %> </h3>
+                <p class="number-phone"><i class="fa-solid fa-phone"></i>0549545881</p>
+            </div>
+            <div class="description2">
+                <p class="user-name"><%= artisan.email %> e</p>
+                <button class="abonne-button">S'abonner</button>
+                <div class="star-rate">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    </div>
+                <p class="pub">
+                    nombre de publication
+                </p>
+                <p class="abonne">
+                    nombre d'abonnés
+                </p>
+                <p class="abonnement">
+                    nombre d'abonnement 
+                </p>
+                
+            </div>
+        </div>
+        <div class="rate">
+            <h3 class="travail"> je faits ces tables Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reprehenderit!</h3> 
+        </div>
+        <div class="rate2">
+            <h3 class="travail2"> je faits ces tables Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reprehenderit!</h3> 
+        </div>
+        <div class="rate3">
+            <h3 class="travail3"> je faits ces tables Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reprehenderit!</h3> 
+        </div>
+           <div class="rate-commentaire">
+               <h1>Commenntaires/Rate</h1>
+               <div class="star-rate">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                </div>
+               <p class="person">person_commenté</p>
+               <button class="comment"> commentaire</button>
+
+           </div>
+    </div>
+</body>
+</html>

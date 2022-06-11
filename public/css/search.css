@@ -1,0 +1,517 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Source+Sans+Pro:wght@300&display=swap');
+:root{
+    --black:#000000;
+    --red:#c70000;
+    --white:#ffffff;
+    --gris:#c4c4c436;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+
+}
+body{
+  overflow-y: hidden;
+
+}
+.container{
+    width: 100%;
+    height: 100vh;
+
+
+    
+}
+/* navbar css */
+nav{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5 0;
+    background-color: black;
+}
+
+.logo img{
+    height: 100px;
+    margin-top: 12px;
+    width: 100px;
+    cursor: pointer;
+}
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 30px ;
+}
+nav ul li a{
+    text-decoration: none;
+    color: rgb(255, 254, 254);
+    font-size: large;
+    margin-left:20px;
+    position: relative;
+}
+nav ul li a:after{
+    content: "";
+    background: var(--red);
+    width: 0;
+    height: 2px;
+    position: absolute;
+    top: 100%;
+    left: -2px;
+    margin: 5px;
+}
+nav ul li a:hover:after{
+    content: "";
+    background: var(--red);
+    width: 100%;
+    transition: 0.3s;
+    height: 2px;
+    position: absolute;
+    top: 100%;
+    left: -2px;
+    margin: 5px;
+}
+
+
+nav .button{
+    margin: 0 10px;
+    border: none;
+  
+}
+
+ button.profile{
+    margin: 0px 30px;
+    background-color: #c70000;
+    border: none;
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: large;
+
+}
+button.profile:hover{
+    background-color: var(--white);
+    color: var(--red);
+    
+    cursor: pointer;
+}
+.search {
+    padding: 10px;
+    width: 30%;
+    height:40px;
+    background-color: #f1f1f1;
+    border-radius:20px;
+    margin: 10px 0 10px 0;
+    display:flex;
+    align-items: center;
+    font-size: large;
+   
+
+}
+.search:hover{
+    outline-color: bisque;
+}
+
+.search > input
+{flex:1;
+    height:30px;
+    border:none;
+    background-color:#f1f1f1;
+    padding-left:10px;
+    
+    outline:none;
+
+}
+
+.input-container{
+    padding: 5px;
+    width: 90%;
+    height:45px;
+    background-color: #f1f1f1;
+    border-radius:5px;
+    margin: 12px 0 10px 0;
+    display:flex;
+    align-items: center;
+    font-size: large;
+    border:none;
+}
+.form{
+    padding-left: 10%;
+  padding-top: 60px;
+ 
+}
+
+
+
+
+
+/* barres des iamges css */
+
+
+
+  /* dropdown css wilaya */
+  /* .select-box-cat {
+    display: flex;
+    width: 150px;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 25px;
+    top:230px;
+    z-index: 1000;
+  }
+  
+  .select-box-cat .options-container-cat {
+    background: #ddd;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+    color: var(--black);
+    order: 1;
+  }
+  
+  .selected-cat {
+    background: #e1e0e0;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: var(--black);
+    position: relative;
+  
+    order: 0;
+  }
+  
+  .selected-cat::after {
+    content: "";
+    background: url("./imgs/angle.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: 10px;
+    top: 5px;
+  
+    transition: all 0.4s;
+  }
+  
+  .select-box-cat .options-container-cat.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+  }
+  
+  .select-box-cat .options-container-cat.active + .selected::after {
+    transform: rotateX(180deg);
+    top: -6px;
+  }
+  
+  .select-box-cat .options-container-cat::-webkit-scrollbar {
+    width: 8px;
+    background: #000000;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  .select-box-cat .options-container-cat::-webkit-scrollbar-thumb {
+    background: #525861;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  .select-box-cat .option-cat,
+  .selected-cat {
+    padding: 5px 15px;
+    cursor: pointer;
+  }
+  
+  .select-box-cat .option-cat:hover {
+    background: rgb(191, 185, 185);
+  }
+  
+  .select-box-cat label {
+    cursor: pointer;
+  }
+  
+  .select-box-cat .option-cat .radio {
+    display: none;
+  }
+  .cate{
+    color: var(--white);
+    top: 190px;
+    left: 40px;
+    position: absolute;
+
+  }
+
+  
+    select{
+      border: none;
+      background: none;
+  }
+  /* wilaya css  
+  
+  .select-box {
+    display: flex;
+    width: 150px;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 25px;
+    top: 330px;
+  }
+  
+  .select-box .options-container {
+    background: #ddd;
+    color: #f5f6fa;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+  
+    order: 1;
+  }
+  
+  .selected {
+    background: #E5E5E5;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: var(--black);
+    position: relative;
+  
+    order: 0;
+    z-index: 1000;
+  }
+  
+  .selected::after {
+    content: "";
+    background: url("./angle.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: 10px;
+    top: 5px;
+  
+    transition: all 0.4s;
+  }
+  
+  .select-box .options-container.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+  }
+  
+  .select-box .options-container.active + .selected::after {
+    transform: rotateX(180deg);
+    top: -6px;
+  }
+  
+  .select-box .options-container::-webkit-scrollbar {
+    width: 8px;
+    background: #0d141f;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  .select-box .options-container::-webkit-scrollbar-thumb {
+    background: #525861;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  .select-box .option,
+  .selected {
+    padding: 5px 15px;
+    cursor: pointer;
+  }
+  
+  .select-box .option:hover {
+    background: rgb(191, 185, 185);
+  }
+  
+  .select-box label {
+    cursor: pointer;
+    color: var(--black);
+  }
+  
+  .select-box .option .radio {
+    display: none;
+  }
+  .wilaya{
+    color: var(--white);
+    top: 295px;
+    left: 40px;
+    position: absolute;
+  } */
+ 
+  /* search 
+  .recherche a{
+    position: absolute;
+    top: 450px;
+    left: 65px;
+    border: none;
+    height: 30px;
+    width: 90px;
+    background: var(--red);
+    color: var(--black);
+    border-radius: 8px;
+    z-index: 100;
+    text-decoration: none;
+  } */
+/* contain-box */
+.contain-box{
+    width: 100%;
+    height: 80vh;
+    position: relative;
+
+}
+.wil{
+  color: var(--white);
+  top: 190px;
+  left: 40px;
+  position: absolute;
+} 
+.recherche {
+  position: absolute;
+  top: 450px;
+  left: 65px;
+  border: none;
+  height: 30px;
+  width: 90px;
+  background: var(--white);
+  color: var(--black);
+  border-radius: 8px;
+} 
+.cat{
+  color: var(--white);
+  top: 490px;
+  left: 40px;
+  position: absolute;
+
+}
+.containerbox{
+    width: 200px;
+    background: var(--black);
+    height: 450px;
+    margin-top: 40px;
+    border-radius: 8px; ;
+    margin-left: 12px;
+
+}
+.searchby{
+    position: absolute;
+    background: var(--red);
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    color: var(--white);
+    border-radius: 8px 8px 0px 0px;
+
+}
+.cat{
+    color: var(--white);
+    top: 55px;
+    position: absolute;
+    left: 40px;
+}
+  /* images css */
+
+  .images section{
+    width: 45px;
+}
+.images{
+    justify-content: space-between;
+    margin-top: 58px;
+
+    display: flex;
+}
+.images section{
+    display: flex;
+    position: absolute;
+    top: 149px;
+    left: 270px;
+    width: 70%;
+    cursor: pointer;
+
+
+}
+.card1{
+    width: 200px;
+    height: 200px;
+    background-image: url("/chris-briggs-ILBrHd6PFJA-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+.card2{
+    height: 200px;
+    width: 200px;
+    margin-left: 18px;
+    background-repeat: no-repeat;
+    background-image: url("/syd-mills-Eq-bV3cbsro-unsplash.jpg");
+    background-size: cover;
+
+}
+.card3{
+    height: 200px;
+    width: 200px;
+    margin-left: 15px;
+    background-image: url("/emma-houghton-EixJzIdl4bc-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.one,.two,.three{
+    font-size: 20px;
+    color: var(--white);
+    z-index: 10;
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.14) 100%); 
+    height: 52px;
+}
+.rate{
+    margin-top: 130px;
+    font-size: 12px;
+    background-color: var(--black);
+    height: 60px;
+    color: var(--white);
+}
+.fa-location-dot{
+    margin-left: 10px;
+    width: 22px;
+    height: 35px;
+}
+.rate h3 a{
+  color: var(--white);
+  margin-left: 10px;
+  text-decoration: none;
+
+
+}
+.checked {
+    color: orange;
+  }
+.star-rate{
+    margin-top: 12px;
+    margin-left: 10px;
+}
+.local ,.fa-location-dot{
+    margin-top: -1px;
+}
+.local{
+    color: var(--white);
+}
+.d-col{
+  display: flex;
+  flex-wrap: wrap;
+  /* gap: 10px; */
+  row-gap: 60px;
+  column-gap: 10px;
+}

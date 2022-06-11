@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
+    ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="modification.css">
+    <title>profile-modification</title>
+</head>
+<body>
+    <div class="container">
+        <div class="contain">
+            <nav>
+        <div class="logo"><img src="\Algerian Crafters (5).png" alt=""></div>
+      
+            <ul>
+                <li><a href="accueil" class="nav-item">Accueil</a></li>
+                <li><a href="posteService" class="nav-item">Trouver artisan</a></li>
+            </ul>
+            <div class="search">
+                    <i class="fas fa-search icon"></i>
+                    <input class="input" type="text" placeholder=" Recherche " name="usrnm">
+                  </div>
+            <ul> 
+                
+                <div class="button">
+                    <button class="dec" onclick="logoutbutn()">Se déconnecter </button>
+                   
+                </div>
+                
+            </ul>
+            
+            <div class="button">
+                <button class="profile"onclick="profile()">profile</button>
+               
+            </div>
+        </nav>
+        <div class="parent">
+
+            <div class="pic">
+                <div class="file">
+                    <input class="file__input" id="photo" accept="image/*" type="file">
+                    
+                        <label class="file__label" for="photo" id="displayimage">
+                            <div class="icn"></div>
+                        </label>
+                        
+                </div>
+            </div>
+
+
+        <div class="form">
+            <form action="/modifier" method="post"></form>
+           
+           <p>Modifier le nom</p> 
+            <div class="inputcontainer">
+                 <br>
+                 <input class="input-field" type="text"  id="nom" name="nom">
+                 <small>error message</small>
+
+               </div>
+               <p> Entrez votre mot de passe</p>
+               <div class="inputcontainer">
+                    <br>
+                    <input class="input-field" type="password"  id="password" name="password">
+                    <small>error message</small>
+
+                  </div>
+                  <p>Entrez votre nouveau mot de passe</p> 
+                  <div class="inputcontainer">
+                       <br>
+                       <input class="input-field" type="password"  id="passwordConf" name="passwordConf">
+                       <small>error message</small>
+
+                     </div>
+                     <p>Modifier le numéro</p> 
+                     <div class="inputcontainer">
+                          <br>
+                          <input class="input-field" type="text"  id="number" name="number">
+                          <small>error message</small>
+
+                        </div>
+
+                     <div class="save"><button class="sau">Sauvegarder </button></div>   
+                     
+        </div>
+    </div>
+    <script>
+        const photo = document.querySelector("#photo");
+      var uploadimage="";
+      photo.addEventListener("change",function(){
+          const reader= new FileReader();
+          reader.addEventListener("load",()=>{
+              uploadimage= reader.result;
+              document.querySelector("#displayimage").style.backgroundImage=`url(${uploadimage})`;
+          });
+          reader.readAsDataURL(this.files[0]);
+      })
+
+const name= document.getElementById('modfn') 
+const psw= document.getElementById('pass')
+const npass= document.getElementById('npass')
+const modfnum= document.getElementById('modfnum') 
+
+ form.addEventListener('submit',(e)=>{
+
+
+checkInput();
+});
+
+function checkInput(){
+const nameValue=name.value.trim(); 
+const pswValue=psw.value.trim();
+const npassValue=npass.value.trim();  
+const modfnumValue=modfnum.value.trim();  
+
+
+
+if( namValue === '') {
+setErrorFor(name,'nom incorrect');
+} else {
+    setSuccessFor(name);
+}
+if( modfnumValue === '') {
+setErrorFor(name,'nom incorrect');
+} else {
+    setSuccessFor(modfnum);
+}
+if( pswValue === ''){
+setErrorFor(psw,'mot de passe incorrect');
+} else {
+    setSuccessFor(psw);
+}
+}
+if( npswValue === ''){
+setErrorFor(rpsw,'password incorrect');
+} 
+ else {
+    setSuccessFor(rpsw);
+}
+
+
+function setErrorFor(input,message){
+
+    const inputcontainer = input.parentElement;
+    const small = inputcontainer.querySelector('small'); 
+
+    small.innerText= message;
+    inputcontainer.className='inputcontainer error';
+}
+
+  function setSuccesFor(input){
+    const inputcontainer = input.parentElement;
+    inputcontainer.className='inputcontainer Success';
+
+
+  }
+
+              function profile(){
+              document.location.href="/profileUser";
+
+
+              
+          }
+          function logoutbutn(){
+            document.location.href="/logout";
+      
+
+        }
+  </script>
+  

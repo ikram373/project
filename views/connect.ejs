@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
+    ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/connect.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" >
+        <div class="contain">
+            <nav>
+        <div class="logo"><img src="Algerian Crafters (5).png" alt=""></div>
+      
+            <ul>
+                <li><a href="accueil" class="nav-item">Accueil</a></li>
+                <li><a href="#" class="nav-item">Trouvez un artisan</a></li>
+                <li><a href="#" class="nav-item">A propos de nous</a></li>
+                <li><a href="#" class="nav-item">Contactez nous</a></li>
+                
+            </ul>
+            <div class="button">
+                <button class="sign" onclick="inscrirebutn()"> S'inscrire</button>
+                <button class="log" onclick="connectbutn()"> Se Connecter</button>
+            </div>
+        </nav>
+        
+       <div class="box-contain">
+           <div class="box-vide">        
+               <img src="pablo-960.png" alt="" >
+           </div>
+           <p class="description"> 
+               Vous n'avez pas un compte?  
+               <a href="inscrire" class="c"><b> S'inscrire </b></a>
+           </p>
+
+           <div class="modal-content">
+            <form class="sign" action="/connect" method="post">
+            <h1><b>Se connecter</b></h1>
+            <br>
+            <%if (message.length > 0) { %>
+                <div class="alert alert-danger" role="alert">
+                    
+                  <%= message %>
+                </div>
+                <% } %>
+            <div class="form">
+                Nom d'utilisateur
+                <div class="input-container">
+                     <br>
+                     <i class="fa fa-user icon"></i>
+                     <input class="input-field" type="text" placeholder="Nom d'utilisateur" name="email" id="email">
+                   </div>
+                  
+                   Mot de passe
+                   
+                   <div class="input-container">
+                        <br>
+                     <i class="fa fa-key icon"></i>
+                     <input class="input-field" type="password" placeholder="Mot de passe" name="password"id="password"   required>
+                   </div>
+                   
+                   
+                    <button type="submit" class="bo"><b>Se connecter</b></button><br><br>
+         
+</form>
+    </div>
+  
+    <script>
+        function connectbutn(){
+            document.location.href="connect";
+      
+
+        }
+        function inscrirebutn(){
+            document.location.href="inscrire";
+      
+
+        }
+        </script>
+    
+
+</body>
+</html>

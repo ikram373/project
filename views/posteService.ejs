@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/aa9b0d42bd.js" crossorigin="anonymous"></script>
+    <title>Profile-Page</title>
+    <link rel="stylesheet" href="passer-artisan2.css">
+</head>
+<body>
+   <div class="container">
+    <nav>
+        <div class="logo"><img src="/Algerian Crafters (5).png" alt=""></div>
+              
+        <ul>
+            <li><a href="accueil" class="nav-item">Accueil</a></li>
+            <!-- <li><a href="#" class="nav-item">Postez un service</a></li> -->
+        </ul>
+        <div class="search">
+                <button class="search-icon"><i class="fas fa-search icon"></i></button>
+                <input class="input" type="text" placeholder=" Recherche " name="usrnm">
+              </div>
+        <ul> 
+            <li><button class="button-out" onclick="logoutbutn()">Log Out</button></li>
+          
+            
+        </ul>
+        
+        <div class="button">
+            <button class="profile"onclick="profilebutn()">Profile</button>
+           
+        </div>
+    </nav>
+    <div class="box-contain">
+        <h2 class="title">Poster un Service</h2>
+        <form action="/service" method="post">
+            <div class="grid1">
+                <img src="/website-maintenance.svg" alt="" width="100" height="100" class="support-center">
+
+            </div>
+           <div class="grid2">
+            <p class="choose-wilaya">Entrer votre wilaya</p>
+            <div class="wilaya-select">
+                <select class="second" id="wlychoose" name="wlychoose"> 
+                    <option value="0" hidden>Wilaya</option>
+                    <%for(let wly of wilayas) {%>
+                    <option value="<%=wly.nom%>" ><%=wly.nom%></option>
+                    <!-- <option value="1">Oran</option>
+                    <option value="2">Sidi Bel Abbes</option>
+                    <option value="3">Aghouat</option>
+                    <option value="4">Relizene</option>
+                    <option value="5">Tiaret</option>
+                    <option value="6">Béjaia</option>
+                    <option value="7">Mascara</option>
+                    <option value="8">Tebessa</option>
+                    <option value="9">Batna</option>
+                    <option value="10">Chlef</option>
+                    <option value="10">Mostaganem</option> -->
+                    <%}%>
+                   
+                    </select>
+           </div>
+           <p class="choose-metier">Entrer votre métier</p>
+
+           <div class="jobs-select">
+            <select class="first" id="metchoose" name="metchoose"> 
+                <option value="0" hidden>Métiers</option>
+                <%for(let met of metiers) {%>
+                <option value="<%=met.metier%>" ><%=met.metier%></option>
+                <!-- <option value="1">Un plombier</option>
+                <option value="2">Un maçon</option>
+                <option value="3">Un mécanicien</option>
+                <option value="4">Un couturie</option>
+                <option value="5">Un éléctrisien</option>
+                <option value="6">Un soudeur</option>
+                <option value="7">Un peintre</option> -->
+                <%}%>
+            </select>
+       </div>
+       <p class="enter-nubmer">Entrer votre numéro de télépohne</p>
+
+       <input type="text" placeholder="Numéro de télépohne" class="number" id="number" name="number">
+
+        <!-- </form> -->
+    </div>
+
+    </div>
+    <button class="poster" >Passer à l'artisanat</button>
+
+    </div>
+    </form>
+   </div>
+</body>
+<script>
+       function profilebutn(){
+            document.location.href="/profileUser";
+      
+
+        }
+        function logoutbutn(){
+            document.location.href="/logout";
+      
+
+        }
+</script>
+</html>

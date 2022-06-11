@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
+    ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="accueil1.css">
+    <title>first-page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="contain">
+            <nav>
+                <div class="logo"><img src="/Algerian Crafters (5).png" alt=""></div>
+              
+                    <ul>
+                        <li><a href="accueil" class="nav-item">Accueil</a></li>
+                       
+                        <li><a href="#propos" class="nav-item">A propos de nous</a></li>
+                        <li><a href="#contact" class="nav-item">Contactez nous</a></li>
+                        
+                    </ul>
+                    <% if(verifUser){ %>
+                        <div class="button">
+                            <button class="sign" onclick="profilebutn()"> Profile </button>
+                            <button class="log" onclick="logoutbutn()">logout</button>
+                        </div>
+                        <% } else{ %>
+                    <div class="button">
+                        <button class="sign" onclick="inscrirebutn()">S'inscrire</button>
+                        <button class="log" onclick="connectbutn()" >Se Connecter</button>
+                    </div>
+                    <% }%>
+            </nav>
+        
+       <div class="box-contain" id="#accueil">
+           <div class="box-vide">  
+            <form action="/recherche" method="post">      
+              <a href=""><button><img src="/magnifying-glass-solid.svg" alt="" class="search-icon"> </button></a>
+           </div>
+           <p class="description">
+               Trouver l'Artisan qui <br> Correspond à vos besoin 
+           </p>
+           <img src="/—Pngtree—happy labour day construction workers_7271228.png" alt="" class="background">
+           <!-- <form action="/trouve"> -->
+           <div class="wilaya-select">
+               
+            <select id="wlychoose" name="wlychoose">
+                <option value=0 hidden>Wilaya</option>
+                <% for(let wly of wilaya ){ %>
+                    <option value=<%= wly.nom %>>  <%= wly.nom %></option>
+                    <% } %>
+
+                </select>
+            
+            </a>
+       </div>
+       <div class="jobs-select">
+        <select class="first" id ="metchoose" name="metchoose"> 
+            <!-- <p class="metier">metier</p> -->
+             <option value=0 hidden>metier</option>
+            
+            <% for(let met of metiers){ %>
+            <option value=<%= met.metier %> > <%= met.metier %></option>
+            <% } %>
+            
+        </select>
+   </div>
+</form>
+       
+    </div>
+    <section class="second-div">
+        <p class="title">
+            Catégories d'emplois populaires
+        </p>
+        <div class="card-list">
+        <div class="card card1">
+            <h4 class="one">  Plombier</h4>
+            <h3 id="c1">05</h3>
+        </div>
+        <div class="card card2">
+            <h4 class="two">Menuisier</h4>
+            <h3 id="c2">03</h3>
+        </div>
+        <div class="card card3">
+            <h4 class="three">maçon</h4>
+            <h3 id="c3">05</h3>
+        </div>
+        <div class="card card4">
+            <h4 class="four">Peintre</h4>
+            <h3 id="c4">07</h3>
+        </div>
+        <div class="card card5">
+            <h4 class="five">Mécanicien</h4>
+            <h3 id="c5">06</h3>
+        </div>
+    </div>
+    
+    </section>
+    <section class="third-div">
+        <img src="/—Pngtree—super engineer character building_6516748.png" alt="" class="ghide-img">
+        <div class="ghides-steps">
+            <div class="content">
+            <h2>Étapes faciles pour postuler à un emploi :</h2>
+            <h3 class="inscription"><i class="fa-regular fa-circle-check"></i>Inscrivez-vous pour un compte gratuit.</h3>
+            <h3><i class="fa-regular fa-circle-check"></i>Publiez votre premier service.</h3>
+            <h3><i class="fa-regular fa-circle-check"></i>Obtenez des clients.</h3>
+        </div>
+        </div>
+    </section>
+    <section class="quinous" id="propos">
+        <div class="content-text">
+            <h1 class="first-title">Qui sommes-nous !</h1>
+            <p class="paragraph">  la première web app  crée par ESI life , est une application web de recherche de métiers /professionnels "jobboard" et d'artisan .
+                notre application Web est destinée à aider ceux qui n'ont pas de déploiement à trouver facilement des clients qui ont besoin de leur travail en tant qu'artisans, en publiant une sorte de portfolio montrant leur expérience dans ce travail en ajoutant des informations de contact afin que le client puisse les contacter pour leur faire un service
+                </p>
+        </div>
+        <img src="/Make life ESI.png" alt="" class="algerian-crafter">
+    </section>
+    <footer class=" footer" id="contact">
+        <div class="content-footer">
+            <div class="row">
+                <div class="footer-col3 footer-col">
+                    <h4 class="services">company</h4>
+                    <ul>
+                        <li><a href="#" class="service">Company of Algerian Crafters 
+                        </a></li>
+                    </ul>
+
+                </div>
+                <div class="footer-col2 footer-col">
+                    <h4 class="services">get help</h4>
+                    <ul>
+                        <li><a href="#">Contactez nous</a></li>
+                        <li><a href="#">Our email: n.belkadi@esi-sba.dz</a></li>
+                        <li><a href="#">Our number: 0548789856</a></li>
+                    </ul>
+
+                </div>
+                <div class="footer-col1 footer-col">
+                    <h4 class="services">folllow us</h4>
+                    <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+</body>
+<script>
+    function connectbutn(){
+        document.location.href="/connect";
+  
+
+    }
+    function inscrirebutn(){
+        document.location.href="/inscrire";
+    }
+    function profilebutn(){
+            document.location.href="/profileUser";
+      
+
+        }
+        function logoutbutn(){
+            document.location.href="/logout";
+      
+
+        }
+        </script>
+  
+</html>

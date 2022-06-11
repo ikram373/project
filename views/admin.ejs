@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
+    ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="page1.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+
+            <div class="cont">
+                <ul>
+                    <li><a href="#" class="nav-item">Tableau de bord</a></li></ul>
+                    <ul>
+                        <li></i><a href="accueil" class="nav-item">Ouvrir le site principale</a></li>
+                    <li><a href="#" class="nav-item">Administrateur</a></li>  <select> <option ></option> </select>
+                   
+                    </ul>
+        
+            </div>
+            <div class="contain">
+                <nav>
+<div class="logo"><img src="Algerian Crafters (5).png" alt=""><p><b>Admin DEMO</b></p></div>
+          
+                <ul>
+<div class="icon">   <li><i class="fas fa-chart-pie fa-2x"></i><br><a href="#" class="nav-item">Tableau de bord</a></li></div>
+                   
+<div class="icon"> <li><i class="fab fa-buromobelexperte fa-2x"></i><br><a href="#" class="nav-item">Catégories</a></li></div>
+<div class="icon"> <li><i class="fas fa-user-circle fa-2x"></i><br><a href="#" class="nav-item">Utilisateurs</a></li></div>
+<div class="icon"> <li><i class="fa fa-bullhorn fa-2x"></i><br><a href="#" class="nav-item">Bannières</a></li></div>
+<div class="icon"> <li ><i class="fas fa-user-alt fa-2x"></i><br><a href="#" class="nav-item">Admins</a> </li></i> </div>  
+        
+        
+                </ul>
+        
+            </nav>
+            </div>
+           
+        </div>   
+         <div class="task">
+                <div class="cards"> 
+                 <div class="card1"> <i class="fas fa-user-check fa-3x"></i><div class="icn" id=""> Total <br> <%= total%> </div> </div>
+                 <div class="card2"><i class="fas fa-user-friends fa-2x"></i><div class="icn" id="">Crafters <br> <%= users.nbartisan%></div> </div>
+                 <div class="card3"><i class="fas fa-user-friends fa-2x"></i><div class="icn" id=""> Client <br> <%= users.nbuser%></div></div> 
+                </div>
+
+                <div class="tasks">
+                    <b>Tasks</b><br>
+                 <div class="check">
+                    <input type="checkbox" id="1" name="1" value="">
+                    <label for="1"> send warning notification</label><br>
+                    <input type="checkbox" id="2" name="2" value="">
+                    <label for="2"> Close banned accounts</label><br>
+                    <input type="checkbox" id="3" name="3" value="">
+                    <label for="3"> Add categories</label><br>
+                   </div>
+                 </div> 
+
+                 <div class="wrapper-center">
+                    <div class="progress-bar">
+                      <svg class="progress" data-progress="10" x="0px" y="0px" viewBox="0 0 80 80">
+                        <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                        <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                        <text class="value" x="50%" y="55%">0%</text>
+                        <text class="text" x="50%" y="115%">Artisans</text>
+                      </svg>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="vertical"></div>
+                  <div class="wrapper-center2">
+                    <div class="progress-bar2">
+                      <svg class="progress2" data-progress2="90" x="0px" y="0px" viewBox="0 0 80 80">
+
+                        <path class="track2" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                        <path class="fill2" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                        
+                        <text class="value2" x="50%" y="55%">0%</text>
+                        <text class="text2" x="50%" y="115%">Clients</text>
+                      </svg>
+                    </div>
+                  </div>
+                  </div>
+
+                 </div>
+    </div>
+    <script type="text/javascript">
+
+       var forEach = function (array, callback, scope) {
+          for (var i = 0; i < array.length; i++) {
+            callback.call(scope, i, array[i]);
+          }
+        };
+        var forEach2 = function (array, callback, scope) {
+          for (var i = 0; i < array.length; i++) {
+            callback.call(scope, i, array[i]);
+          }
+        };
+        
+        window.onload = function(){
+          var max = -219.99078369140625;
+          forEach(document.querySelectorAll('.progress'), function (index, value) {
+          percent = value.getAttribute('data-progress');
+            value.querySelector('.fill').setAttribute('style', 'stroke-dashoffset: ' + ((100 - percent) / 100) * max);
+            value.querySelector('.value').innerHTML = percent + '%';
+            
+          });
+          forEach2(document.querySelectorAll('.progress2'), function (index, value2) {
+          percent = value2.getAttribute('data-progress2');
+            value2.querySelector('.fill2').setAttribute('style', 'stroke-dashoffset: ' + ((100 - percent) / 100) * max);
+            value2.querySelector('.value2').innerHTML = percent + '%';
+            
+          });
+        }
+       
+       
+       
+      </script>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
+    ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="desc5.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="contain">
+            <nav>
+        <div class="logo"><img src="\Algerian Crafters (5).png" alt=""></div>
+      
+            <ul>
+                <li><a href="accueil" class="nav-item">Accueil</a></li>
+                <li><a href="posteService" class="nav-item">Postez un service</a></li>
+            </ul>
+            <div class="search">
+                    <i class="fas fa-search icon"></i>
+                    <input class="input" type="text" placeholder=" Recherche " name="usrnm">
+                  </div>
+            <ul> 
+                <li><a href="#" class="nav-item">Notification</a></li>
+              
+                
+            </ul>
+            
+            <div class="button">
+                <button class="profile" onclick="profile( )">profile</button>
+               
+            </div>
+        </nav>
+
+<div class="first">
+
+  <div class="imgg"> <img src="\av.png" alt="" class="avatar"><br>
+    <h1><%= users.fullname %> </h1></div> 
+<div class ="non"><b> <%= users.email %> </b></div>
+<div class="mod"><button class="mdf" onclick="modifier( )">Modifier le profile</button> </div>
+<div class="iconn" onclick="modifier()"><i class="fa-solid fa-gear" ></i> </div>
+   
+</div>
+
+<div class="butt"><div class = "vertical"></div>
+    <center>
+<button class="ab">Abonnements</button>
+
+    <button class="eng" onclick="enrg()">Enregistrements</button>
+</center>
+</div>
+<div class="following"></div>
+<div class="list">
+    <div class="imggg"></div> 
+      <div class="content"> 
+     <h1>person</h1>
+     <p>categorie de travail</p>
+     </div>   
+     <div class="follow">
+    <button class="follow">Se désabonner</button></div>
+</div>
+<div class="list">
+    <div class="imggg"></div> 
+      <div class="content"> 
+     <h1>person2</h1>
+     <p>categorie de travail</p>
+     </div>   
+     <div class="follow">
+    <button class="follow">Se désabonner</button></div>
+</div>
+<div class="list">
+    <div class="imggg"></div> 
+      <div class="content"> 
+     <h1>person3</h1>
+     <p>categorie de travail</p>
+     </div>   
+     <div class="follow">
+    <button class="follow">Se désabonner</button></div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+ <script>     
+  function profile(){
+    document.location.href="profileuser";} 
+    function modifier(){
+    document.location.href="modifierprofile";}
+function enrg(){
+    document.location.href="desc6";
+}
+
+    
+
+</script>
+    </body>
+    </html>  

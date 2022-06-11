@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/aa9b0d42bd.js" crossorigin="anonymous"></script>  
+    <link rel="stylesheet" href="rech.css">
+    <title>racherche</title>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo"><img src="/Algerian Crafters (5).png" alt=""></div>
+          
+                <ul>
+                    <li><a href="accueil" class="nav-item">Accueil</a></li>
+                    <%if(verifUser){%>
+                    <%if (role=="user"){%>
+                    <li><a href="posteService" class="nav-item">Postez un service</a></li>
+                   <% }else{%>
+                    <!-- <li><a href="posteService" class="nav-item">Artisan</a></li> -->
+                    <% }%>
+                    <% }%>
+                   
+                </ul>
+                <div class="search">
+                        <i class="fas fa-search icon"></i>
+                        <input class="input" type="text" placeholder=" Recherche . . ." name="usrnm">
+                </div>
+                <!-- <ul> 
+                    <li><a href="#" class="nav-item">Notification</a></li>
+                  
+                    
+                </ul> -->
+               <% if(verifUser){%>
+                <div class="button">
+                    <button class="profile"onclick="profilebutn()">profile</button>
+                   
+                </div>
+                <div class="button">
+                    <button class="profile"onclick=" logoutbutn()">logout</button>
+                   
+                </div>
+            <%}else{%>
+                <div class="button">
+                    <button class="profile"onclick="inscrirebutn()">S'inscrire</button>
+                   
+                </div>
+                <div class="button">
+                    <button class="profile"onclick="connectbutn()">Se connecter</button>
+                   
+                </div>
+            <%}%>
+            </nav>
+            <form action="/recherche" method="post">
+            <div class="containerbox">
+                <p class="searchby">Recherche par:</p>
+                <p class="wil">Wilaya</p>
+            <div class="wilaya-select">
+               
+                <select id="wlychoose" name="wlychoose" class="select-wilaya">
+                    <option value=0 hidden>Wilaya</option>
+                    <% for(let wly of wilaya ){ %>
+                        <option value="<%= wly.nom %>"> <%= wly.nom %></option>
+                        <% } %>   
+                    </select>
+           </div>
+                <p class="wilaya">Wilaya</p>
+                <p class="cat">Catégorie</p>
+           <div class="category-select">
+               
+            <select  id ="metchoose" name="metchoose" class=" select-category">
+                <option value=0 hidden>Catégories</option>
+                <% for(let met of metiers){ %>
+                    <option value="<%= met.metier %>"><%= met.metier %></option>
+                    <% } %>  
+                </select>
+            </div>
+            <button type="submit" class="recherche">Recherche</button> 
+        </div>
+    </form>
+           
+            
+            <div class="images">
+               
+                <section class="d-col">
+                    <% for(let arts of art){ %>
+                        
+                    <div class="card1" >
+                        <h4 class="one"><%= arts.metier %> </h4>
+                        <div class="rate">
+
+                            <h3><a href="/profile/<%= arts._id %>"><%= arts.fullname %></a></h3>
+                           
+                            <p class="local"><i class="fa-solid fa-location-dot"><%= arts.wilaya %></i> </p>
+                             <div class="star-rate">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                </div>
+                            </div>
+                    </div>
+               
+                    <% }%>
+                </section>
+            
+                
+            </div>
+            </div>
+ 
+</body>
+<script>
+      function connectbutn(){
+        document.location.href="/connect";
+  
+
+    }
+    function inscrirebutn(){
+        document.location.href="/inscrire";
+    }
+    function profilebutn(){
+            document.location.href="/profileUser";
+      
+
+        }
+        function logoutbutn(){
+            document.location.href="/logout";
+      
+
+        }
+</script>
+</html> 
+
+
