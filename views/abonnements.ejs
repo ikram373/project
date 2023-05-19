@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/abonnements.css">
+    <title>Abonnements</title>
+</head>
+<body>
+    <div class="profile-crafter-main">
+        <div class="nv-bar">
+            <img src="/Algerian Crafters (5).png" />
+            <a  href="accueil" class="acc">Accueil</a>
+            <!-- <a href="#" class="acc">Postez un service</a> -->
+            <div class="search"><input type="text" placeholder="Recherche"/></div>
+            <div class="signup">
+                <button class="log-pf" onclick="profile()">Profile</button>
+                <button class="log-dc">Se Deconnecter</button>
+            </div>
+        </div>
+        <div class="bdy-crafter">
+            <div class="prfl">
+                <img class="pic-prfl" src="/<%=users.photo_profille%>"/>
+                <p class="inff"><%= users.fullname %></p>
+                <p class="inff" ><%= users.metier %></p>
+                <p class="inff" ><%= users.wilaya %></p>
+                <p class="inff"><%= users.numero %></p>
+            </div>
+            <div class="ctt">
+                <div class="ctt-fst">
+                    <p><%= users.email %></p>
+                    <button class="btn-md" onclick="modifier()">Modifier le profile</button>
+                </div>
+                <div class="ctt-scd">
+                    <button class="btn-scd srv "onclick="services()">Services</button>
+                    <button class="btn-scd srv1"onclick="abonnement()">Abonnements</button>
+                  <button class="btn-scd srv2" onclick="Commente()">Commentaires</button>
+                </div>
+                <div class="ctt-thrd">
+                    <% for (let abn of tab){%>
+                    <div class="post-edit">
+                        <div class="pic-profile"><img src="/<%= abn.photo_profille%>"/></div>
+                        <div class="answr">
+                            <p class=" answr-tl"><%= abn.fullname%></p></p>
+                            <p><%= abn.metier%></p>
+                        </div>
+                        <form action="/SedesabonnerU" method="post"> 
+                            <input type="text" hidden value="<%= abn._id %>" name="id">
+                        <button class="btn-abn">Se désabonner</button>
+                    </form>
+                        
+                    </div>
+                    <%}%>
+
+                    <!-- <div class="post-edit">
+                        <div class="pic-profile"><img src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/></div>
+                        <div class="answr">
+                            <p class=" answr-tl">Ikram</p>
+                            <p>Categorie de travail</p>
+                        </div>
+                        <button class="btn-abn">Se désabonner</button>
+                        
+                    </div> -->
+
+                    <!-- <div class="post-edit">
+                        <div class="pic-profile"><img src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/></div>
+                        <div class="answr">
+                            <p class=" answr-tl">Ikram</p>
+                            <p>Categorie de travail</p>
+                        </div>
+                        <button class="btn-abn">Se désabonner</button>
+                        
+                    </div> -->
+
+                    <!-- <div class="post-edit">
+                        <div class="pic-profile"><img src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/></div>
+                        <div class="answr">
+                            <p class=" answr-tl">Ikram</p>
+                            <p>Categorie de travail</p>
+                        </div>
+                        <button class="btn-abn">Se désabonner</button>
+                        
+                    </div> -->
+
+                    <!-- <div class="post-edit">
+                        <div class="pic-profile"><img src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/></div>
+                        <div class="answr">
+                            <p class=" answr-tl">Ikram</p>
+                            <p>Categorie de travail</p>
+                        </div>
+                        <button class="btn-abn">Se désabonner</button>
+                        
+                    </div> -->
+                    
+                    
+                    
+                        
+                    
+                  
+                     
+                     
+                     
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+</body>
+<script>
+    function Commente(){
+    document.location.href="/commentaire";
+}
+function services(){
+    document.location.href="/profileUser";
+}
+function abonnement(){
+    document.location.href="/abonement";
+}
+function profilebutn(){
+            document.location.href="/profileUser";
+        }
+        function modifier(){
+    document.location.href="modificationC";
+}
+function logoutbutn(){
+            document.location.href="/logout";
+      
+
+        }
+</script>
+</html>

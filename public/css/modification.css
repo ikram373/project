@@ -20,7 +20,7 @@ nav{
     align-items: center;
     justify-content: space-between;
     padding: 5 0;
-    background-color: #5e5e61;
+    background-color: #030359;
 }
 
 .logo img{
@@ -68,18 +68,18 @@ button.profile:hover{
 }
 button.dec{
     margin: 0px 30px;
-    background-color: #c70000;
+    background-color: #ffffff;
     border: none;
     height: 35px;
     width: 150px;
     border-radius: 5px;
-    color: white;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     font-size: 17px;
 
 }
 button.dec:hover{
-    background-color: #b91010d2;
+    background-color: #bbb6b6d2;
     
     cursor: pointer;
 }
@@ -162,19 +162,19 @@ button.follow:hover{
 
 .inputcontainer{
     padding: 5px;
-    width: 90%;
+    width: 400px;
     height:45px;
     background-color: #f1f1f1;
     border-radius:5px;
-    margin: 12px 0 19px 0;
+    margin: 9px 0 9px 0;
     display:flex;
     align-items: center;
-    font-size: large;
+    font-size: x-large;
     border:none;
 }
 .form{
     padding-left: 12%;
-  padding-top: 1px;
+  padding-top: -10px;
  
 }
 .input-field{
@@ -192,30 +192,19 @@ p{
 color:rgb(36, 34, 34);
 
 }
-button.sau{
-  
-    background-color: #c70000;
-    border: none;
-    height: 35px;
-    width: 200px;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-size: large;
-    margin-left: 250px;
-  margin-top: 20px;
-}
-button.sau:hover{
-    background-color: #b91010d2;
-}
+
   .parent{
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding-top: 70px;
     padding-left: 260px;
-    
+    margin-top: -30px;
    
+}
+.prt{
+    display: flex;
+    flex-direction: row;
 }
 .file {
         margin: 0;
@@ -295,3 +284,22 @@ background-position: center;
     
   
 }
+
+button.sau{
+  
+    background-color: #c70000;
+    border: none;
+    height: 35px;
+    width: 180px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: large;
+   margin-top: 10px;
+   margin-left: 250px;
+}
+button.sau:hover{
+    background-color: #b91010d2;
+}
+
+

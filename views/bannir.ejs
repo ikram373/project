@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
+    ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ban.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+
+            <div class="cont">
+                <ul>
+                    <li><a href="#" class="nav-item">Tableau de bord</a></li></ul>
+                    <ul>
+                        <li></i><a href="accueil" class="nav-item">Ouvrir le site principale</a></li>
+                    <li><a href="/logout" class="nav-item">Se Déconnecter</a></li>  <select> <option ></option> </select>
+                   
+                    </ul>
+        
+            </div>
+            <div class="contain">
+                <nav>
+<div class="logo"><img src="\Algerian Crafters (5).png" alt=""><p><b>Admin DEMO</b></p></div>
+          
+                <ul>
+<div class="icon">   <li><i class="fas fa-chart-pie fa-2x"></i><br><a href="admin" class="nav-item">Tableau de bord</a></li></div>
+                   
+<div class="icon"> <li><i class="fab fa-buromobelexperte fa-2x"></i><br><a href="addcatego" class="nav-item">Catégories</a></li></div>
+<div class="icon"> <li><i class="fas fa-user-circle fa-2x"></i><br><a href="users" class="nav-item">Utilisateurs</a></li></div>
+<div class="icon"> <li><i class="fa fa-bullhorn fa-2x"></i><br><a href="bannir" class="nav-item">Bannières</a></li></div>
+<!-- <div class="icon"> <li ><i class="fas fa-user-alt fa-2x"></i><br><a href="#" class="nav-item">Admins</a> </li></i> </div>   -->
+        
+        
+                </ul>
+        
+            </nav>
+            </div>
+           
+        </div> 
+
+         <div class="task">
+            <div class="scroller">
+                <%for(let info of tab){%>
+             <div class="tab">
+                
+
+             <div class="o">
+                <div class="list">
+                    <div class="imggg"></div> 
+                      <div class="content"> 
+                     <h1>person</h1>
+                     <p><%=info[0].fullname%></p>
+                     </div>   
+                </div>
+          <div class="ban"><b>Bannir</b></div>
+                <div class="list">
+                    <div class="imggg"></div> 
+                      <div class="content"> 
+                     <h1>person</h1>
+                     <p><%=info[1].fullname%></p>
+                     </div>   
+                </div>
+             </div>
+             
+            <div class="reason">
+                <form action="verifie" method="POST">
+          <p>Le raison</p>
+           <div class="put" > <%=info[2]%></div>
+           <!-- <form action="verifie" method="POST"> -->
+            <input type="text" hidden value="<%= info[1]._id%>" name="idartisan" id="users">
+            <button class="vrf">Vérifié</button>
+        </form>
+          </div>   
+          
+      </div> 
+      <%}%> 
+      
+      
+         </div>
+
+         
+         
+    </div>
+</body>
+
+
+
+
+    <script type="text/javascript" charset="utf-8">
+
+function logoutbutn(){
+            document.location.href="/logout";
+      
+
+        }
+    </script>
+         
+
+    
+       

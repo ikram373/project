@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/commentair.css">
+    <title>commentair</title>
+</head>
+<body>
+    <div class="profile-crafter-main">
+        <div class="nv-bar">
+            <img src="/Algerian Crafters (5).png" />
+            <a  href="accueil" class="acc">Accueil</a>
+            <a href="#" class="acc">Postez un service</a>
+            <div class="search"><input type="text" placeholder="Recherche"/></div>
+            <div class="signup">
+                <button class="log-pf" onclick="profilebutn()">Profile</button>
+                <button class="log-dc" onclick="logoutbutn()">Se Deconnecter</button>
+            </div>
+        </div>
+        <div class="bdy-crafter">
+            <div class="prfl">
+                <img class="pic-prfl" src="/<%= users.photo_profille %>/>
+                <p class="inff"><%= users.fullname %></p>
+                <p class="inff" > <%= users.metier %></p>
+                <p class="inff" ><%= users.wilaya %></p>
+                <p class="inff"><%= users.numero %></p>
+            </div>
+            <div class="ctt">
+                <div class="ctt-fst">
+                    <p><%= users.email %></p>
+                    <button class="btn-md" onclick="modifier()">Modifier le profile</button>
+                </div>
+                <div class="ctt-scd">
+                    <!-- <a href="/profile-crafter.html"> -->
+                        <button class="btn-scd srv " onclick="services()">Services</button>
+                    <!-- </a> -->
+                    <!-- <a href="/abonnements.html"> -->
+                        <button class="btn-scd srv1" onclick="abonnement()">Abonnements</button>
+                    <!-- </a> -->
+                   <!-- <a href="/Commentair.html"> -->
+                    <button class="btn-scd srv2" onclick="Commente()">Commentaires</button>
+                <!-- </a> -->
+                </div>
+                <div class="ctt-thrd">
+                    <%for (comment of users.commenter){%>
+                    <div class="post-edit">
+                        <div class="pic-profile"><img src="/user.jpg"/></div>
+                        <div class="answr">
+                            <p class=" answr-tl"><%=comment[1]%></p>
+                            <p><%=comment[0]%></p>
+                        </div>
+                        
+                    </div>
+                    <%}%>
+                    <!-- <div class="post-edit">
+                        <div class="pic-profile"><img src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/></div>
+                        <div class="answr">
+                            <p class=" answr-tl">Ikram</p>
+                            <p>Amet minim mollit non deserunt ullamco est sit aliqua 
+                                dolor do amet sint. Velit officia consequat duis
+                                 enim velit mollit. Exercitation</p>
+                        </div>
+                        
+                    </div> -->
+                    <!-- <div class="post-edit">
+                        <div class="pic-profile"><img src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/></div>
+                        <div class="answr">
+                            <p class=" answr-tl">Ikram</p>
+                            <p>Amet minim mollit non deserunt ullamco est sit aliqua 
+                                dolor do amet sint. Velit officia consequat duis
+                                 enim velit mollit. Exercitation</p>
+                        </div>
+                        
+                    </div> -->
+                    <!-- <div class="post-edit">
+                        <div class="pic-profile"><img src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/></div>
+                        <div class="answr">
+                            <p class=" answr-tl">Ikram</p>
+                            <p>Amet minim mollit non deserunt ullamco est sit aliqua 
+                                dolor do amet sint. Velit officia consequat duis
+                                 enim velit mollit. Exercitation</p>
+                        </div>
+                        
+                    </div> -->
+                    <!-- <div class="post-edit">
+                        <div class="pic-profile"><img src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/></div>
+                        <div class="answr">
+                            <p class=" answr-tl">Ikram</p>
+                            <p>Amet minim mollit non deserunt ullamco est sit aliqua 
+                                dolor do amet sint. Velit officia consequat duis
+                                 enim velit mollit. Exercitation</p>
+                        </div>
+                        
+                    </div> -->
+                    
+                        
+                    
+                  
+                     
+                     
+                     
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+</body>
+<script>
+    function Commente(){
+    document.location.href="/commentaire";
+}
+function services(){
+    document.location.href="/profileUser";
+}
+function abonnement(){
+    document.location.href="/abonement";
+}
+function profilebutn(){
+            document.location.href="/profileUser";
+        }
+        function modifier(){
+    document.location.href="modificationC";
+}
+function logoutbutn(){
+            document.location.href="/logout";
+      
+
+        }
+
+</script>
+</html>

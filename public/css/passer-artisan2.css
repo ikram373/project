@@ -118,6 +118,33 @@ button.profile:hover{
    
 
 }
+.search1{
+    padding: 10px;
+    width: 30%;
+    height:40px;
+    background-color: #f1f1f1;
+    border-radius:20px;
+    margin: 10px 0 10px 0;
+    display:flex;
+    align-items: center;
+    font-size: large;
+   
+
+}
+.btn-vt{
+    position: absolute;
+    left: 4%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+.btn-vt>img{
+    width: 20px;
+    height: 20px;
+
+}
 .search-icon{
     border: none;
     background-color:#f1f1f1 ;

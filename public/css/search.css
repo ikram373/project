@@ -13,13 +13,10 @@
     font-family: 'poppins', sans-serif;
 
 }
-body{
-  overflow-y: hidden;
 
-}
 .container{
     width: 100%;
-    height: 100vh;
+    height: 180vh;
 
 
     
@@ -81,13 +78,61 @@ nav .button{
     border: none;
   
 }
+/* css navbar non connecté */
+button.sign{
+  margin: 0px 30px;
+  background-color: #c70000;
+  border: none;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 17px;
+
+}
+button.sign:hover{
+  background: white;
+  border: 1px solid white;
+  color:#c70000 ;
+  cursor: pointer;
+}
+button.log{
+  border: none;
+  width: 130px;
+  height: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  margin-right: 10px;
+
+}
+button.log:hover{
+  background-color:black;
+  border: 1px solid white;
+  color: white; 
+  cursor: pointer;
+}
+/* end */
+.button-out{
+  margin: 0px 30px;
+  background-color: var(--white);
+  border: none;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  color: var(--black);
+  cursor: pointer;
+  font-size: large;
+
+}
 
  button.profile{
     margin: 0px 30px;
     background-color: #c70000;
     border: none;
     height: 35px;
-    width: 100px;
+    width: 142px;
     border-radius: 5px;
     color: white;
     cursor: pointer;
@@ -127,6 +172,11 @@ button.profile:hover{
     outline:none;
 
 }
+.btn{
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
 
 .input-container{
     padding: 5px;
@@ -155,13 +205,13 @@ button.profile:hover{
 
 
   /* dropdown css wilaya */
-  /* .select-box-cat {
+  .select-box-cat {
     display: flex;
     width: 150px;
     flex-direction: column;
     position: absolute;
     margin-left: 25px;
-    top:230px;
+    top:149px;
     z-index: 1000;
   }
   
@@ -203,6 +253,9 @@ button.profile:hover{
   }
   
   .select-box-cat .options-container-cat.active {
+    /* max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll; */
     max-height: 240px;
     opacity: 1;
     overflow-y: scroll;
@@ -243,7 +296,7 @@ button.profile:hover{
   }
   .cate{
     color: var(--white);
-    top: 190px;
+    top: 95px;
     left: 40px;
     position: absolute;
 
@@ -254,7 +307,7 @@ button.profile:hover{
       border: none;
       background: none;
   }
-  /* wilaya css  
+  /* wilaya css  */
   
   .select-box {
     display: flex;
@@ -262,7 +315,7 @@ button.profile:hover{
     flex-direction: column;
     position: absolute;
     margin-left: 25px;
-    top: 330px;
+    top: 275px;
   }
   
   .select-box .options-container {
@@ -286,12 +339,11 @@ button.profile:hover{
     position: relative;
   
     order: 0;
-    z-index: 1000;
   }
   
   .selected::after {
     content: "";
-    background: url("./angle.svg");
+    background: url("./imgs/angle.svg");
     background-size: contain;
     background-repeat: no-repeat;
   
@@ -346,25 +398,25 @@ button.profile:hover{
   }
   .wilaya{
     color: var(--white);
-    top: 295px;
+    top: 229px;
     left: 40px;
     position: absolute;
-  } */
+  }
  
-  /* search 
+  /* search */
   .recherche a{
     position: absolute;
-    top: 450px;
+    top: 371px;
     left: 65px;
     border: none;
     height: 30px;
     width: 90px;
     background: var(--red);
-    color: var(--black);
+    color: var(--white);
     border-radius: 8px;
     z-index: 100;
     text-decoration: none;
-  } */
+  }
 /* contain-box */
 .contain-box{
     width: 100%;
@@ -372,34 +424,10 @@ button.profile:hover{
     position: relative;
 
 }
-.wil{
-  color: var(--white);
-  top: 190px;
-  left: 40px;
-  position: absolute;
-} 
-.recherche {
-  position: absolute;
-  top: 450px;
-  left: 65px;
-  border: none;
-  height: 30px;
-  width: 90px;
-  background: var(--white);
-  color: var(--black);
-  border-radius: 8px;
-} 
-.cat{
-  color: var(--white);
-  top: 490px;
-  left: 40px;
-  position: absolute;
-
-}
-.containerbox{
+.select-choice{
     width: 200px;
     background: var(--black);
-    height: 450px;
+    height: 547px;
     margin-top: 40px;
     border-radius: 8px; ;
     margin-left: 12px;
@@ -413,6 +441,7 @@ button.profile:hover{
     text-align: center;
     color: var(--white);
     border-radius: 8px 8px 0px 0px;
+    margin-left: 12px;
 
 }
 .cat{
@@ -421,9 +450,23 @@ button.profile:hover{
     position: absolute;
     left: 40px;
 }
+/* section.imgs{
+  display: grid;
+  justify-content: start;
+
+  width: 100%;
+  height: 50vh;
+  top: 45px;
+  left: 250px;
+  position: absolute;
+}
+section.imgs img{
+  width: 180px;
+  height: 180px;
+}
   /* images css */
 
-  .images section{
+ /* .images section{
     width: 45px;
 }
 .images{
@@ -441,77 +484,179 @@ button.profile:hover{
     cursor: pointer;
 
 
+} */
+
+.row{
+	display: flex;
+	flex-wrap: wrap;
+  margin-top: 150px;
 }
-.card1{
-    width: 200px;
-    height: 200px;
-    background-image: url("/chris-briggs-ILBrHd6PFJA-unsplash.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+.footer{
+	/* background-color: #24262b;
+    padding: 110px 0;
+    position: absolute;
+    bottom: 100px; */
+    background-color: #24262b;
+    position:absolute;
+
+
+    width:100%;
+
+    /* padding-top:50px; */
+
+    height:250px;
+    margin-top:  234px;
+  }
+ul{
+    list-style: none;
+
+}
+ .footer-col1
+{
+    width: 15%;
+   padding: 0 15px;
+   right: 0%;
+   position: absolute;
+   margin-top: -55px;
+}
+.footer-col2{
+    right: 40%;
+    position: absolute;
+    top: 351%;
+    margin-top: -771px;
 
 
 }
-.card2{
-    height: 200px;
-    width: 200px;
-    margin-left: 18px;
-    background-repeat: no-repeat;
-    background-image: url("/syd-mills-Eq-bV3cbsro-unsplash.jpg");
-    background-size: cover;
+.footer-col3{
+    right: 50%;
+    position: absolute;
+    left: 4%;
+margin-top: -45px;
+}
+.footer-col1ul li a,.footer-col2 ul li a,.footer-col3 ul li a{
+	color: var(--white);
+}
+
+.footer-col h4{
+	font-size: 18px;
+	color: var(--white);
+	text-transform: capitalize;
+	margin-bottom: 15px;
+	font-weight: 500;
+	
+    position: relative;
+}
+.footer-col h4::before{
+	content: "";
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color:var(--red);
+	height: 2px;
+	box-sizing: border-box;
+	width: 70px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: var(--white);
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col2 ul li.ctct{
+	color: #bbbbbb;
 
 }
-.card3{
-    height: 200px;
-    width: 200px;
-    margin-left: 15px;
-    background-image: url("/emma-houghton-EixJzIdl4bc-unsplash.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+.footer-col ul li a:hover{
+	color: var(--white);
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+    height:40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    text-align: center;
+    line-height: 40px;
+	border-radius: 50%;
+	color: var(--white);
+	transition: transform 0.5s; 
+    margin:0px 10px 10px 0;
 
+}
+.footer-col .social-links a:hover{
+    transform: translateY(-5px);
+}
+.footer-col .social-links{
+    position: absolute;
+    left: -8px;
+    
+} 
+
+/* code imgs */
+
+.image section{
+  width: 100%;
+  height: 150%;
+}  
+.image{
+  margin-left: 300px;
+  position: relative;
+  top: -475px;
+}
+.userspost {
+  display: grid;
+gap: 20px;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
 }
 .one,.two,.three{
-    font-size: 20px;
-    color: var(--white);
-    z-index: 10;
-    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.14) 100%); 
-    height: 52px;
+  font-size: 18px;
+  color: var(--white);
+  z-index: 10;
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.14) 100%); 
+  height: 52px;
+  top: -168px;
+  width: 150px;
+  position: relative;
 }
 .rate{
-    margin-top: 130px;
-    font-size: 12px;
-    background-color: var(--black);
-    height: 60px;
-    color: var(--white);
+  margin-top: -59px;
+  font-size: 10px;
+  width: 150px;
+
+  background-color: var(--black);
+  height: 60px;
+  color: var(--white);
 }
 .fa-location-dot{
-    margin-left: 10px;
-    width: 22px;
-    height: 35px;
+  margin-left: 10px;
+  width: 22px;
+  height: 35px;
 }
 .rate h3 a{
-  color: var(--white);
-  margin-left: 10px;
-  text-decoration: none;
+color: var(--white);
+margin-left: 10px;
+text-decoration: none;
 
 
 }
 .checked {
-    color: orange;
-  }
+  color: orange;
+}
 .star-rate{
-    margin-top: 12px;
-    margin-left: 10px;
+  margin-top: -22px;
+  margin-left: 10px;
 }
 .local ,.fa-location-dot{
-    margin-top: -1px;
+  margin-top: -1px;
 }
 .local{
-    color: var(--white);
-}
-.d-col{
-  display: flex;
-  flex-wrap: wrap;
-  /* gap: 10px; */
-  row-gap: 60px;
-  column-gap: 10px;
+  color: var(--white);
+
 }

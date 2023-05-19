@@ -44,11 +44,11 @@
             <h1><b>S'inscrire</b></h1>
             <br>
             <div class="form">
-                <%if (message.length > 0) { %>
+                <!-- <%if (message.length > 0) { %>
                         
                       <%= message %>
                     </div>
-                    <% } %>
+                    <% } %> -->
 
                 Nom d'utilisateur
                 <div class="input-container">
@@ -75,6 +75,11 @@
                      <i class="fa fa-key icon"></i>
                      <input class="input-field" type="password" placeholder="Mot de passe" name="passwordConf" id="passwordConf" minlength="8" required>
                    </div>
+                   <%if (message.length > 0) { %>
+                        
+                    <%= message %>
+                  </div>
+                  <% } %>
                     <button type="submit" class="bo"><b>Créer un compte</b></button><br><br>     
                  </form>
     </div>

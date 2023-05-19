@@ -14,62 +14,101 @@
         <div class="contain">
             <nav>
                 <div class="logo"><img src="/Algerian Crafters (5).png" alt=""></div>
+                <div class="barmenu"></div>
               
                     <ul>
-                        <li><a href="accueil" class="nav-item">Accueil</a></li>
+                        <li><a href="/accueil" class="nav-item">Accueil</a></li>
+                        <% if(verifUser){%>
+                            <% if(role=='user'){%>
+                                <li><a href="/posteService" class="nav-item">Postez un service</a></li>
+                                <%}else{%>
+                                    <% if(role=='artisan'){%>
+                                        <li><a href="/posterPub" class="nav-item">Postez un service</a></li>
+                                <%}%>
+                                <%}%>
+                                <%}%>
                        
                         <li><a href="#propos" class="nav-item">A propos de nous</a></li>
                         <li><a href="#contact" class="nav-item">Contactez nous</a></li>
+                        <!-- <% if(verifUser){%>
+                        <% if(role=='user'){%>
+                            <li><a href="posteService.ejs" class="nav-item">Contactez nous</a></li>
+                            <%}%>
+                            <%}%> -->
+
                         
                     </ul>
-                    <% if(verifUser){ %>
-                        <div class="button">
-                            <button class="sign" onclick="profilebutn()"> Profile </button>
-                            <button class="log" onclick="logoutbutn()">logout</button>
-                        </div>
-                        <% } else{ %>
+                    
+                    
+                    <% if(verifUser){%>
+                    <div class="button">
+                        <button class="sign" onclick="profilebutn()">Profile</button>
+                        <button class="log" onclick="logoutbutn()">logout</button>
+                    </div>
+                    <%}else{%>
                     <div class="button">
                         <button class="sign" onclick="inscrirebutn()">S'inscrire</button>
-                        <button class="log" onclick="connectbutn()" >Se Connecter</button>
+                        <button class="log" onclick="connectbutn()">Se Connecter</button>
                     </div>
-                    <% }%>
+                    <%}%>
+                    
             </nav>
         
        <div class="box-contain" id="#accueil">
-           <div class="box-vide">  
-            <form action="/recherche" method="post">      
-              <a href=""><button><img src="/magnifying-glass-solid.svg" alt="" class="search-icon"> </button></a>
-           </div>
+           <!-- <div class="box-vide">        
+              <a href="recherche.html"><img src="./imgs/magnifying-glass-solid.svg" alt="" class="search-icon"></a> 
+           </div> -->
            <p class="description">
                Trouver l'Artisan qui <br> Correspond à vos besoin 
            </p>
            <img src="/—Pngtree—happy labour day construction workers_7271228.png" alt="" class="background">
-           <!-- <form action="/trouve"> -->
+           <form   action="/recherche" method="post">
+
+            <div class="box-vide">     
+                 <button class="search-icon"><img src="/magnifying-glass-solid.svg" alt=""  ></button>    
+           </div>
            <div class="wilaya-select">
-               
-            <select id="wlychoose" name="wlychoose">
+            <select  id="wlychoose" name="wlychoose">
                 <option value=0 hidden>Wilaya</option>
                 <% for(let wly of wilaya ){ %>
-                    <option value=<%= wly.nom %>>  <%= wly.nom %></option>
+                    <option value=<%= wly.nom %>>  <%= wly.nom %> </option>
                     <% } %>
 
+                <!-- <option value="1">Oran</option> -->
+                <!-- <option value="2">Sidi Bel Abbes</option>
+                <option value="3">Aghouat</option>
+                <option value="4">Relizene</option>
+                <option value="5">Tiaret</option>
+                <option value="6">Béjaia</option>
+                <option value="7">Mascara</option>
+                <option value="8">Tebessa</option>
+                <option value="9">Batna</option>
+                <option value="10">Chlef</option>
+                <option value="10">Mostaganem</option> -->
+                
+               
                 </select>
-            
-            </a>
        </div>
+    
        <div class="jobs-select">
         <select class="first" id ="metchoose" name="metchoose"> 
-            <!-- <p class="metier">metier</p> -->
-             <option value=0 hidden>metier</option>
-            
+            <option value=0 hidden>Métiers</option>
+             
             <% for(let met of metiers){ %>
-            <option value=<%= met.metier %> > <%= met.metier %></option>
-            <% } %>
-            
+                <option value=<%= met.metier %> > <%= met.metier %></option>
+                <% } %>
+                
+            <!-- <option value="0">Un menuisier</option>
+            <option value="1">Un plombier</option>
+            <option value="2">Un maçon</option>
+            <option value="3">Un mécanicien</option>
+            <option value="4">Un couturie</option>
+            <option value="5">Un éléctrisien</option>
+            <option value="6">Un soudeur</option>
+            <option value="7">Un peintre</option> -->
         </select>
    </div>
-</form>
-       
+    </form>
     </div>
     <section class="second-div">
         <p class="title">
@@ -77,24 +116,29 @@
         </p>
         <div class="card-list">
         <div class="card card1">
+            <a href=""><img src="/hammer.png" alt="" width="80" class="hammer"></a>
+            <h4 class="one">  macon</h4>
+            <h3 id="c1">05</h3>
+        </div>
+        <div class="card card1">
+            <a href=""><img src="/paint-brush.png" alt="" width="80" class="hammer"></a>
+            <h4 class="one">  peinteur</h4>
+            <h3 id="c1">05</h3>
+        </div>
+        <div class="card card1">
+            <a href=""><img src="/plumbering.png" alt="" width="80" class="hammer"></a>
             <h4 class="one">  Plombier</h4>
             <h3 id="c1">05</h3>
         </div>
-        <div class="card card2">
-            <h4 class="two">Menuisier</h4>
-            <h3 id="c2">03</h3>
+        <div class="card card1">
+            <a href=""><img src="/toolkit(1).png" alt="" width="80" class="hammer"></a>
+            <h4 class="one">  mécanicien</h4>
+            <h3 id="c1">05</h3>
         </div>
-        <div class="card card3">
-            <h4 class="three">maçon</h4>
-            <h3 id="c3">05</h3>
-        </div>
-        <div class="card card4">
-            <h4 class="four">Peintre</h4>
-            <h3 id="c4">07</h3>
-        </div>
-        <div class="card card5">
-            <h4 class="five">Mécanicien</h4>
-            <h3 id="c5">06</h3>
+        <div class="card card1">
+            <a href=""><img src="/handsaw.png" alt="" width="80" class="hammer"></a>
+            <h4 class="one">  menuisier</h4>
+            <h3 id="c1">05</h3>
         </div>
     </div>
     
@@ -133,7 +177,7 @@
                 <div class="footer-col2 footer-col">
                     <h4 class="services">get help</h4>
                     <ul>
-                        <li><a href="#">Contactez nous</a></li>
+                        <li class="ctct">Contactez nous</li>
                         <li><a href="#">Our email: n.belkadi@esi-sba.dz</a></li>
                         <li><a href="#">Our number: 0548789856</a></li>
                     </ul>
@@ -142,9 +186,9 @@
                 <div class="footer-col1 footer-col">
                     <h4 class="services">folllow us</h4>
                     <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-youtube"></i></a>
                     
                     </div>
 
@@ -174,5 +218,4 @@
 
         }
         </script>
-  
 </html>

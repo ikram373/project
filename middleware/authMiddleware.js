@@ -8,7 +8,7 @@ const verifyToken=(req,res,next)=>{
     }else{
         jwt.verify(token,jwt_secret,(err,decodedToken)=>{
             if(err){
-                res.redirect('connect')
+                res.redirect('/connect')
             }else{
             
                 next();
@@ -16,5 +16,5 @@ const verifyToken=(req,res,next)=>{
         })
     }
 }
-// console.log(token);
+
 module.exports=verifyToken;

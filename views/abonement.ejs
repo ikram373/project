@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
+    ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/aa9b0d42bd.js" crossorigin="anonymous"></script>
+    <title>Abonnements</title>
+    <link rel="stylesheet" href="/abonement[1].css">
+</head>
+WXCVBN?./§%MLKJHGFDSQAZERTYUIOP¨£µ12
+<body>
+    <div class="container">
+   
+    <nav>
+        <div class="logo"><img src="/Algerian Crafters (5).png" alt=""></div>
+      
+            <ul>
+                <li><a href="/accueil" class="nav-item">Accueil</a></li>
+                <!-- <li><a href="#" class="nav-item">Postez un service</a></li> -->
+            </ul>
+            <div class="search">
+                <i class="fas fa-search icon"></i>
+                <input class="input" type="text" placeholder=" Recherche . . ." name="usrnm">
+        </div>
+          
+            
+            <div class="button">
+                <button class="profile"onclick="profile()">Profile</button>
+               
+            </div>
+            <ul> 
+                
+                <div class="button">
+                    <button class="dec">Se Déconnecter </button>
+                   
+                </div>
+                
+            </ul>
+        </nav>
+            <div class="contain">
+          
+        <div class="description">
+            <div class="profile-pic-div">
+                <img src="/user.svg" alt="" id="photo" >
+                <input type="file" id="file" >
+                <label for="file" id="uploadBtn"></label>
+              </div>
+    <div class="info">
+        <p class="profile"> Photo de Profile</p>
+        <h3 class="full-name"><%= users.fullname %></h3>
+        <h3 class="métier">
+            <%= users.metier %>
+        </h3>
+        <h3 class="wilaya"><i class="fa-solid fa-location-dot"></i><%= users.wilaya %></h3>
+        <p class="number-phone"><i class="fa-solid fa-phone"></i><%= users.numero %></p>
+    </div>  
+
+
+</div>
+            <div class="description2">
+                <p class="user-name"><%= users.email %></p>
+                <div class="wrapper">
+                <button class="modifier-button" onclick="modifier()"> Modifier Profile </button>
+              
+                </div>
+
+                <button class="service" onclick="services()" >
+                    Services
+                </button>
+                <button class="abon" onclick="abonnement()">
+                     Abonnements
+                </button>
+                
+                   <button class="comment" onclick="Commente()">Commentaires</button> 
+                   <div class="comments-box">
+                    <div class="following"></div>
+                    <% for (let abn of tab){%>
+                    <div class="list">
+                        <div class="imggg"></div> 
+                          <div class="content"> 
+                         <h1><%= abn.fullname%></h1>
+                         <p><%= abn.metier%></p>
+                         </div>  
+                         <form action="/SedesabonnerU" method="post">  
+                         <div class="follow">
+                            <input type="text" hidden value="<%= abn._id %>" name="id">
+                        <button class="follow" onclick="">Se désabonner</button></div>
+                        </form>
+                    </div>
+                    <%}%>
+                    <!-- <div class="list">
+                        <div class="imggg"></div> 
+                          <div class="content"> 
+                         <h1>person2</h1>
+                         <p>categorie de travail</p>
+                         </div>   
+                         <div class="follow">
+                        <button class="follow">Se désabonner</button></div>
+                    </div> -->
+                    <!-- <div class="list">
+                        <div class="imggg"></div> 
+                          <div class="content"> 
+                         <h1>person3</h1>
+                         <p>categorie de travail</p>
+                         </div>   
+                         <div class="follow">
+                        <button class="follow">Se désabonner</button></div>
+                </div> -->
+                
+            </div>
+        </div>
+       
+      
+
+         
+
+           
+    </div>
+    <script>
+        const wrapper=document.querySelector(".wrapper"),
+        btnSelect = wrapper.querySelector(".btn");
+
+        btnSelect.addEventListener("click", () => {
+            wrapper.classList.toggle("active");
+        })
+              
+    
+function Commente(){
+    document.location.href="/commentaire";
+}
+function services(){
+    document.location.href="/profileUser";
+}
+function abonnement(){
+    document.location.href="/abonement";
+}
+function profilebutn(){
+            document.location.href="/profileUser";
+        }
+        function modifier(){
+    document.location.href="modificationC";
+}
+function logoutbutn(){
+            document.location.href="/logout";
+      
+
+        }
+// function services(){
+//     document.location.href="profile-crafter.html";
+// }
+
+    
+
+    </script>
+ 
+</body>
+</html>

@@ -66,6 +66,24 @@ button.profile:hover{
     
     cursor: pointer;
 }
+button.profile1{
+    
+        border: none;
+        width: 140px;
+        height: 35px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 17px;
+        margin-right: 10px;
+    
+
+}
+button.profile1:hover{
+    background-color: #b91010d2;
+    
+    cursor: pointer;
+}
+
 button.ab{
     margin: 0px 240px;
     background-color: #c70000;
@@ -286,3 +304,18 @@ border-width: 1px;
  .content h1{
      margin-left: 50px;
  } 
+
+ .btn-vt1{
+    position: absolute;
+    left: 42%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+.btn-vt1>img{
+    width: 20px;
+    height: 20px;
+
+}

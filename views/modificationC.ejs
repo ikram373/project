@@ -13,35 +13,38 @@
     <div class="container">
         <div class="contain">
             <nav>
-        <div class="logo"><img src="\Algerian Crafters (5).png" alt=""></div>
+        <div class="logo"><img src="/Algerian Crafters (5).png" alt=""></div>
       
             <ul>
                 <li><a href="accueil" class="nav-item">Accueil</a></li>
-                <li><a href="posteService" class="nav-item">Trouver artisan</a></li>
+                <li><a href="posterService" class="nav-item">Postez un service</a></li>
             </ul>
+            <!-- <form  class="search1"action="/rechFullname" method="post"> -->
             <div class="search">
                     <i class="fas fa-search icon"></i>
-                    <input class="input" type="text" placeholder=" Recherche " name="usrnm">
+                    <input class="input" type="text" placeholder=" Recherche " name="fullname">
                   </div>
+                <!-- </form> -->
             <ul> 
-                
-                <div class="button">
-                    <button class="dec" onclick="logoutbutn()">Se déconnecter </button>
-                   
-                </div>
-                
-            </ul>
             
+                 
             <div class="button">
                 <button class="profile"onclick="profile()">profile</button>
                
             </div>
+               
+                
+            </ul>
+            <div class="button">
+                    <button class="dec"onclick="logoutbutn()">Se déconnecter </button>
+                   
+                </div>
         </nav>
         <div class="parent">
-
+            <form   class="prt" action="/modificationC" method="post" enctype="multipart/form-data">
             <div class="pic">
                 <div class="file">
-                    <input class="file__input" id="photo" accept="image/*" type="file">
+                    <input type="file" class="file__input" id="photo" name="image" accept="image/*" type="file">
                     
                         <label class="file__label" for="photo" id="displayimage">
                             <div class="icn"></div>
@@ -52,39 +55,103 @@
 
 
         <div class="form">
-            <form action="/modifier" method="post"></form>
+            
            
            <p>Modifier le nom</p> 
             <div class="inputcontainer">
                  <br>
-                 <input class="input-field" type="text"  id="nom" name="nom">
-                 <small>error message</small>
+                 <input class="input-field" type="text"  id="modfn" name="nom">
+                 <small></small>
 
                </div>
                <p> Entrez votre mot de passe</p>
                <div class="inputcontainer">
                     <br>
-                    <input class="input-field" type="password"  id="password" name="password">
-                    <small>error message</small>
+                    <input class="input-field" type="password"  id="pass" name="password">
+                    <small></small>
 
                   </div>
                   <p>Entrez votre nouveau mot de passe</p> 
                   <div class="inputcontainer">
                        <br>
-                       <input class="input-field" type="password"  id="passwordConf" name="passwordConf">
-                       <small>error message</small>
+                       <input class="input-field" type="password"  id="npass" name="passwordConf">
+                       <small></small>
 
                      </div>
                      <p>Modifier le numéro</p> 
                      <div class="inputcontainer">
                           <br>
-                          <input class="input-field" type="text"  id="number" name="number">
-                          <small>error message</small>
+                          <input class="input-field" type="text"  id="modfnum" name="number">
+                          <small></small>
 
                         </div>
 
-                     <div class="save"><button class="sau">Sauvegarder </button></div>   
-                     
+                        <p>Modifier la wilaya</p> 
+                        <div class="inputcontainer">
+                             <br>
+                             <select class="input-field" type="text"  id="wlychoose" name="wlychoose">
+                                <option value=0 hidden>Wilaya</option>
+                                <% for(let wly of wilaya ){ %>
+                                <option value="<%= wly.nom %>"><%= wly.nom %></option>
+                                <% } %>
+                                <!-- <option value="1">Chlef</option>
+                                <option value="2">Laghouat</option>
+                                <option value="3">Oum El Bouaghi</option>
+                                <option value="4">Batna</option>
+                                <option value="5">Béjaïa</option>
+                                <option value="6">Biskra</option>
+                                <option value="7">Béchar</option>
+                                <option value="8">Blida</option>
+                                <option value="9">Bouira</option>
+                                <option value="10">Tamanrasset</option>
+                                <option value="11">Tébessa	</option>
+                                <option value="12">Tlemcen</option>
+                                <option value="13">Tiaret</option>
+                                <option value="14">Tizi Ouzou</option>
+                                <option value="15">Alger</option>
+                                <option value="16">Djelfa</option>
+                                <option value="17">Jijel</option>
+                                <option value="18">Setif</option>
+                                <option value="19">Saïda</option>
+                                <option value="20">Skikda</option>
+                                <option value="21">Sidi Bel Abbès</option>
+                                <option value="22">Annaba</option>
+                                <option value="23">Guelma</option>
+                                <option value="24">Constantine</option>
+                                <option value="25">Médéa</option>
+                                <option value="26">Mostaganem</option>
+                                <option value="27">M'Sila</option>
+                                <option value="28">Mascara</option>
+                                <option value="29">Ouargla</option>
+                                <option value="30">Oran</option>
+                                <option value="31">El Bayadh</option>
+                                <option value="32">Illizi</option>
+                                <option value="33">Bordj Bou Arreridj</option>
+                                <option value="34">Boumerdès</option>
+                                <option value="35">El Tarf</option>
+                                <option value="36">Tindouf</option>
+                                <option value="37">Tissemsilt</option>
+                                <option value="38">El Oued</option>
+                                <option value="39">Khenchela</option>
+                                <option value="40">Souk Ahras</option>
+                                <option value="41">Tipaza</option>
+                                <option value="42">Mila</option>
+                                <option value="43">Aïn Defla</option>
+                                <option value="44">Naâma</option>
+                                <option value="45">Aïn Témouchent</option>
+                                <option value="46">Ghardaïa</option>
+                                <option value="47">Relizane</option> -->
+          
+                             </select>                
+                             <small></small>
+   
+                           </div>
+                           <%if (message){%>
+                            <div><%= message%></div>
+                        <%}%>
+
+                        <button  type="submit" class="sau">Sauvegarder </button>
+                    </form>      
         </div>
     </div>
     <script>
@@ -158,7 +225,12 @@ function setErrorFor(input,message){
 
   }
 
-              function profile(){
+        
+
+
+              
+          
+          function profile(){
               document.location.href="/profileUser";
 
 

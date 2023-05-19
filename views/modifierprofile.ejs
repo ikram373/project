@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
     ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="desc7.css">
+    <link rel="stylesheet" href="mdf.css">
     <title>profile-modification</title>
 </head>
 <body>
@@ -25,23 +25,24 @@
                   </div>
             <ul> 
                 
-                <div class="button">
-                    <button class="dec" onclick="logoutbutn()">Se déconnecter </button>
-                   
-                </div>
-                
-            </ul>
-            
-            <div class="button">
+                 <div class="button">
                 <button class="profile"onclick="profilebutn()">profile</button>
                
             </div>
+                
+            </ul>
+             <div class="button">
+                    <button class="dec"onclick= "logoutbutn()">Se déconnecter </button>
+                   
+                </div>
+          
         </nav>
         <div class="parent">
-
+            <form action="/modifierprofile" method="post" enctype="multipart/form-data">
             <div class="pic">
                 <div class="file">
-                    <input class="file__input" id="photo" accept="image/*" type="file">
+                   
+                    <input class="file__input" id="photo" name="image" accept="image/*" type="file" >
                     
                         <label class="file__label" for="photo" id="displayimage">
                             <div class="icn"></div>
@@ -52,66 +53,49 @@
 
 
         <div class="form">
-            <form action="/modifierprofile" method="post">
-
            
            <p>Modifier le nom</p> 
             <div class="inputcontainer">
                  <br>
-                 <input class="input-field" type="text"  id="nom" name="nom">
+                 <input class="input-field" type="text"  id="modfn" name="nom">
                  <small>error message</small>
 
                </div>
                <p> Entrez votre mot de passe</p>
                <div class="inputcontainer">
                     <br>
-                    <input class="input-field" type="password"  id="password" name="password">
+                    <input class="input-field" type="password"  id="pass" name="password">
                     <small>error message</small>
 
                   </div>
                   <p>Entrez votre nouveau mot de passe</p> 
                   <div class="inputcontainer">
                        <br>
-                       <input class="input-field" type="password"  id="passwordConf" name="passwordConf">
+                       <input class="input-field" type="password"  id="npass" name="passwordConf">
                        <small>error message</small>
 
                      </div>
+                     <% if(message){%>
+                        <div><%= message %></div>
+                     
+                     <%}%>
                     
-                     <div class="save"><button class="sau">Sauvegarder </button></div>   
-            </form>         
+                     <div class="save"><button class="sau" type="submit">Sauvegarder </button></div>   
+                     
         </div>
+    </form> 
     </div>
     <script>
-        
-    function connectbutn(){
-        document.location.href="/connect";
-  
-
-    }
-    function inscrirebutn(){
-        document.location.href="/inscrire";
-    }
-    function profilebutn(){
-            document.location.href="/profileUser";
-      
-
-        }
-        function logoutbutn(){
-            document.location.href="/logout";
-      
-
-        }
-        
-//         const photo = document.querySelector("#photo");
-//       var uploadimage="";
-//       photo.addEventListener("change",function(){
-//           const reader= new FileReader();
-//           reader.addEventListener("load",()=>{
-//               uploadimage= reader.result;
-//               document.querySelector("#displayimage").style.backgroundImage=`url(${uploadimage})`;
-//           });
-//           reader.readAsDataURL(this.files[0]);
-//       })
+    //     const photo = document.querySelector("#photo");
+    //   var uploadimage="";
+    //   photo.addEventListener("change",function(){
+    //       const reader= new FileReader();
+    //       reader.addEventListener("load",()=>{
+    //           uploadimage= reader.result;
+    //           document.querySelector("#displayimage").style.backgroundImage=`url(${uploadimage})`;
+    //       });
+    //       reader.readAsDataURL(this.files[0]);
+    //   })
 
 // const name= document.getElementById('modfn') 
 // const psw= document.getElementById('pass')
@@ -167,12 +151,19 @@
 
 //   }
 
-//               function profile(){
-//               document.location.href="desc5.html";
+  function profilebutn(){
+            document.location.href="/profileUser";
+      
+
+        }
+        function logoutbutn(){
+            document.location.href="/logout";
+      
+
+        }
 
 
               
-//           }
-//   </script>
-</html>
+          
+  </script>
   

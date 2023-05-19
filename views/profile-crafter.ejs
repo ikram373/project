@@ -3,167 +3,360 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/aa9b0d42bd.js" crossorigin="anonymous"></script>
-    <title>Profile-Page artisan</title>
-    <link rel="stylesheet" href="Profile-crafter.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pro.css">
 </head>
 <body>
     <div class="container">
-        <nav>
-        <div class="logo"><a href="accueil"><img src="/Algerian Crafters (5).png" alt=""></a></div>
-              
-        <ul>
-            <li><a href="accueil" class="nav-item">Accueil</a></li>
-            <!-- <li><a href="#" class="nav-item">Postez un service</a></li> -->
-        </ul>
-        <div class="search">
-            <button class="search-icon"><i class="fas fa-search icon"></i></button>
-            <input class="input" type="text" placeholder=" Recherche " name="usrnm">
-          </div>
-        <ul> 
-            <li><button class="button-out" onclick="logoutbutn()">Se Déconnécter</button></li>
+        <header>
+            <div class="logo"><img src="/Algerian Crafters (5).png" alt=""></div>
           
-            
-        </ul>
-        
-        <div class="button">
-            <button class="profile"onclick="profilebutn()">Profile</button>
-           
-        </div>
-    </nav>
-            <div class="contain">
-            <!-- <div class="description">
-                <div class="box"><h3>Ajouter une photo</h3></div>
-                <div class="box-info">
-                <p class="profile-img"> Photo de Profile</p>
-                <h3 class="full-name">Nom </h3>
-                <h3 class="métier">
-                    Nom_Metier
-                </h3>
-                <h3 class="wilaya"><i class="fa-solid fa-location-dot"></i> Nom_de_wilaya</h3>
-                <p class="number-phone"><i class="fa-solid fa-phone"></i>0549545881</p>
+                <ul>
+                    <li><a href="/accueil" class="nav-item">Accueil</a></li>
+                    <li><a href="/posterPub" class="nav-item">Postez un service</a></li>
+                </ul>
+                <div class="search">
+                    <i class="fas fa-search icon"></i>
+                    <input class="input" type="text" placeholder=" Recherche . . ." name="usrnm">
             </div>
-        </div> -->
-        <div class="description">
-            <div class="profile-pic-div">
-                <img src="/user.svg" alt="" id="photo" >
-                <input type="file" id="file" >
-                <label for="file" id="uploadBtn"></label>
-              </div>
-    <div class="info">
-        <p class="profile"> Photo de Profile</p>
-        <h3 class="full-name"><%= users.fullname %></h3>
-        <h3 class="métier">
-            <%= users.metier %> 
-        </h3>
-        <h3 class="wilaya"><i class="fa-solid fa-location-dot"></i><%=users.wilaya %></h3>
-        <p class="number-phone"><i class="fa-solid fa-phone"></i><%=users.numero %></p>
-    </div>  
-
-
-</div>
-            <div class="description2">
-                <p class="user-name">Nom d'utilisateur</p>
-                <div class="wrapper">
-                <button class="modifier-button" onclick="modifier()">Modifier Profile </button>
-                <div class="logout">
-                    <div class="btn">
-                   <i class="fa-solid fa-angle-down"></i>
+                
+                <div class="button">
+                    <button class="profile"onclick="profile()">Profile</button>
+                   
                 </div>
-                <div class="contentselect">
-                   <ul>
-                       <li class="button-out"><i class="fa-solid fa-arrow-right-from-bracket"></i><a href="/logout">Se Déconnécter</a> </li>
-                   </ul>
-                </div>
+                <ul> 
+                    
+                    <div class="button">
+                        <button class="dec" onclick="logoutbutn()">Se Déconnecter </button>
+                       
                     </div>
-                </div>
+                    
+                </ul>
+        </header>
+            <div class="contain">
+          
+                <div class="description">
+                    <div class="profile-pic-div">
+                        <img class="photoprofile" src="/<%= users.photo_profille %>" alt=""  >
+                        
+                      </div>
+            <div class="info">
+                <!-- <p class="profile"> Photo de Profile</p> -->
+                <br>
+                <h3 class="full-name"><%= users.fullname %> </h3>
+                <h3 class="métier">
+                    <%= users.metier %>
+                </h3>
+                <h3 class="wilaya"><i class="fa-solid fa-location-dot"></i> <%=users.wilaya %></h3>
+                <p class="number-phone"><i class="fa-solid fa-phone"></i><%=users.numero %></p>
+            </div>  
+            <hr class="line"></hr>
+            <div class="side-nav">
+                <nav>
+                    <ul>
+                        <li class="active" onclick="show(0)">
+                            <span><i  class="fa fa-cog"></i></span>
+                            <h3>Modifier</h3>
+                        </li>
+                        <li onclick="show(1)">
+                            <span><i  class="fa fa-cog"></i></span>
+                            <h3>Services</h3>
+                        </li>
+                        <li  onclick="show(2)">
+                            <span><i  class="fa fa-cog"></i></span>
+                            <h3>Abonnements</h3>
+                        </li>
+                        <li  onclick="show(3)">
+                            <span><i  class="fa fa-cog"></i></span>
+                            <h3>Commentaires</h3>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+         
+        
+        </div>
+        <div class="main">
+            <section class="modifier-page tabs">
+               <div class="parent">
+                <form   class="prt" action="/modificationC" method="post" enctype="multipart/form-data">
 
-                <!-- <p class="pub">
-                    nombre de publication
-                </p>
-                <p class="abonne">
-                    nombre d'abonnés
-                </p>
-                <p class="abonnement">
-                    nombre d'abonnement 
-                </p> -->
+               <div class="profile-pic">
+                   <img src="<%=users.photo_profille %>" alt="" id="photo">
+                   <input type="file" id="file" name="image">
+                   <label for="file" id="uploadBtn">Importer</label>
+               </div>
+
+    
+    
+            
+            <div class="form">
+            
+           
+                <p>Modifier le nom</p> 
+                 <div class="inputcontainer">
+                      <br>
+                      <input class="input-field" type="text"  id="modfn" name="nom">
+                      <small></small>
+     
+                    </div>
+                    <p> Entrez votre mot de passe</p>
+                    <div class="inputcontainer">
+                         <br>
+                         <input class="input-field" type="password"  id="pass" name="password">
+                         <small></small>
+     
+                       </div>
+                       <p>Entrez votre nouveau mot de passe</p> 
+                       <div class="inputcontainer">
+                            <br>
+                            <input class="input-field" type="password"  id="npass" name="passwordConf">
+                            <small></small>
+     
+                          </div>
+                          <p>Modifier le numéro</p> 
+                          <div class="inputcontainer">
+                               <br>
+                               <input class="input-field" type="text"  id="modfnum" name="number">
+                               <small></small>
+     
+                             </div>
+     
+                             <p>Modifier la wilaya</p> 
+                             <div class="inputcontainer">
+                                  <br>
+                                  <select class="input-field" type="text"  id="wlychoose" name="wlychoose">
+                                     <option value=0 hidden>Wilaya</option>
+                                     <% for(let wly of wilaya ){ %>
+                                     <option value="<%= wly.nom %>"><%= wly.nom %></option>
+                                     <% } %>
+                                     <!-- <option value="1">Chlef</option>
+                                     <option value="2">Laghouat</option>
+                                     <option value="3">Oum El Bouaghi</option>
+                                     <option value="4">Batna</option>
+                                     <option value="5">Béjaïa</option>
+                                     <option value="6">Biskra</option>
+                                     <option value="7">Béchar</option>
+                                     <option value="8">Blida</option>
+                                     <option value="9">Bouira</option>
+                                     <option value="10">Tamanrasset</option>
+                                     <option value="11">Tébessa	</option>
+                                     <option value="12">Tlemcen</option>
+                                     <option value="13">Tiaret</option>
+                                     <option value="14">Tizi Ouzou</option>
+                                     <option value="15">Alger</option>
+                                     <option value="16">Djelfa</option>
+                                     <option value="17">Jijel</option>
+                                     <option value="18">Setif</option>
+                                     <option value="19">Saïda</option>
+                                     <option value="20">Skikda</option>
+                                     <option value="21">Sidi Bel Abbès</option>
+                                     <option value="22">Annaba</option>
+                                     <option value="23">Guelma</option>
+                                     <option value="24">Constantine</option>
+                                     <option value="25">Médéa</option>
+                                     <option value="26">Mostaganem</option>
+                                     <option value="27">M'Sila</option>
+                                     <option value="28">Mascara</option>
+                                     <option value="29">Ouargla</option>
+                                     <option value="30">Oran</option>
+                                     <option value="31">El Bayadh</option>
+                                     <option value="32">Illizi</option>
+                                     <option value="33">Bordj Bou Arreridj</option>
+                                     <option value="34">Boumerdès</option>
+                                     <option value="35">El Tarf</option>
+                                     <option value="36">Tindouf</option>
+                                     <option value="37">Tissemsilt</option>
+                                     <option value="38">El Oued</option>
+                                     <option value="39">Khenchela</option>
+                                     <option value="40">Souk Ahras</option>
+                                     <option value="41">Tipaza</option>
+                                     <option value="42">Mila</option>
+                                     <option value="43">Aïn Defla</option>
+                                     <option value="44">Naâma</option>
+                                     <option value="45">Aïn Témouchent</option>
+                                     <option value="46">Ghardaïa</option>
+                                     <option value="47">Relizane</option> -->
+               
+                                  </select>                
+                                  <small></small>
+        
+                                </div>
+                                <%if (message){%>
+                                 <div><%= message%></div>
+                             <%}%>
+     
+                             <button  type="submit" class="sau">Sauvegarder </button>
+                         </form>      
+             </div>
+                </div> 
+            </section>
+            <section class="tabs">
+                <h1>Votre Services</h1>
+        
+                <div class="user-posts">
+                    <!-- <div class="posts">
+                        <span class="poster-service.html"><i class="fa fa-plus"></i></span>
+                        <h2>ajouter un service</h2>
+                    </div> -->
+                    <%for(let pub of users.pub){%>
+                    <div class="posts">
+                       <img width="150" src="/<%=pub[0]%>" alt="">
+                       <p class="travail"> <%=pub[1]%></p> 
+                    </div>
+                    <%}%>
+                    <!-- <div class="posts">
+                        <img width="150" src="/chris-briggs-ILBrHd6PFJA-unsplash.jpg" alt="">
+                        <h3 class="travail"> je faits ces tables Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reprehenderit!</h3> 
+        
+                    </div> -->
+                    <!-- <div class="posts">
+                        <img width="150" src="/chris-briggs-ILBrHd6PFJA-unsplash.jpg" alt="">
+                        <h3 class="travail"> je faits ces tables Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reprehenderit!</h3> 
+        
+                    </div> -->
+                     
+        
+                </div>
+             
+        
+            </section>
+            <section class="tabs">
+                <h1>Abonnements</h1>
+                <div class="comments-box">
+                    <div class="following"></div>
+                    <% for (let abn of tab){%>
+                    <div class="list">
+                        <div class="imggg">
+                            <img src="/<%= abn.photo_profille%>" alt=""  class="personne" width="100">
+                        </div> 
+                          <div class="content"> 
+                         <h1 class="person"><%= abn.fullname%></h1>
+                         <p class="cate"><%= abn.metier%></p>
+                         </div> 
+                         <div class="follow">
+                            <form action="/SedesabonnerU" method="post"> 
+                                <input type="text" hidden value="<%= abn._id %>" name="id">
+                        <button class="follow">Se désabonner</button></div>
+                    </form>
+                    </div>
+                    <%}%>
+                    <hr>
+                    <!-- <div class="list">
+                        <div class="imggg">  <img src="../imgs/user.png" alt="" class="personne" width="100">
+                        </div> 
+                          <div class="content"> 
+                         <h1 class="person">person2</h1>
+                         <p class="cate">categorie de travail</p>
+                         </div>   
+                         <div class="follow">
+                        <button class="follow">Se désabonner</button></div>
+                    </div> -->
+                    <!-- <hr> -->
+                    <!-- <div class="list">
+                        <div class="imggg"> <img src="../imgs/user.png" alt="" class="personne" width="100">
+                        </div> 
+                          <div class="content"> 
+                         <h1 class="person">person3</h1>
+                         <p class="cate">categorie de travail</p>
+                         </div>   
+                         <div class="follow">
+                        <button class="follow">Se désabonner</button></div>
+                </div> -->
                 
             </div>
-        </div>
-       
-        <div class="mes-travails">
-            <div class="rate">
-                <img src="/emma-houghton-EixJzIdl4bc-unsplash.jpg"a width="100" height="100" lt="">
-               <div class="description1">
-                <h3 class="travail"> je faits ces tables Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reprehenderit!</h3> 
-               </div> 
-            </div>
-            <div class="rate2">
-                <img src="/emma-houghton-EixJzIdl4bc-unsplash.jpg"a width="100" height="100" lt="">
-               <div class="description2">
-                <h3 class="travail2"> je faits ces tables Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reprehenderit!</h3> 
-               </div> 
-            </div>
-            <div class="rate3">
-                <img src="/emma-houghton-EixJzIdl4bc-unsplash.jpg"a width="100" height="100" lt="">
-               <div class="description3">
-                <h3 class="travail3"> je faits ces tables Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reprehenderit!</h3> 
-               </div> 
-            </div>
-        </div>
-           <!-- <div class="rate-commentaire">
-               <h1>Commenntaires/Rate</h1>
-               <div class="star-rate">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
+            </section>
+            <section class="tabs">
+                <h1>commentaire</h1>
+                <div class="comments-box">
+                    <%for (comment of users.commenter){%>
+                    <p class="person-comment"><%=comment[1]%></p>
+                    <h4><%=comment[0]%></h4>
+                    <hr>
+                    <%}%>
+                    <!-- <p class="person-comment">Person Commenté</p>
+                    <h4>commentaire</h4>
+                    <hr>
+                    <p class="person-comment">Person Commenté</p>
+                    <h4>commentaire</h4> -->
                 </div>
-               <p class="person">person_commenté</p>
-               <button class="comment"> commentaire</button>
-               <button class="reponse">Répondere</button>
+            </section>
+        </div>
+        </div>  
 
-           </div> -->
 
-           <div class="rate-commentaire">
-            <h4>Commenntaires</h4>
-            <!-- <div class="star-rate">
-             <span class="fa fa-star checked"></span>
-             <span class="fa fa-star checked"></span>
-             <span class="fa fa-star checked"></span>
-             <span class="fa fa-star"></span>
-             <span class="fa fa-star"></span>
-             </div> -->
-            <p class="person">person_commenté</p>
-             <!-- <input type="text" placeholder="Commentaire" class="comment"> -->
-             <div class="ecpace-comment">
-                <p class="commentaire">blablabnal</p>
-            </div>
-           </div>
-
-           
-    </div>
     <script>
-        const wrapper=document.querySelector(".wrapper"),
-        btnSelect = wrapper.querySelector(".btn");
-
-        btnSelect.addEventListener("click", () => {
-            wrapper.classList.toggle("active");
+        $(".side-nav nav ul li").click(function(){
+            $(this).addClass(".active").siblings().removeClass(".active");  
         })
-        function profilebutn(){
-            document.location.href="/profileUser";
-        }
-        function modifier(){
-    document.location.href="modificationC";
+     
+    </script>
+
+   <script>
+               const tbtn=document.querySelectorAll(".side-nav nav ul li")
+const tab=document.querySelectorAll(".tabs");
+function show(panelIndex){
+    tab.forEach(function(node){
+        node.style.display="none";
+    })
+    tab[panelIndex].style.display="block";
 }
+    show(0);
+
+    const imgDiv = document.querySelector('.profile-pic');
+const img = document.querySelector('#photo');
+const file = document.querySelector('#file');
+const uploadBtn = document.querySelector('#uploadBtn');
+
+//if user hover on img div 
+
+imgDiv.addEventListener('mouseenter', function(){
+    uploadBtn.style.display = "block";
+});
+
+//if we hover out from img div
+
+imgDiv.addEventListener('mouseleave', function(){
+    uploadBtn.style.display = "none";
+});
+
+
+file.addEventListener('change', function(){
+    const choosedFile = this.files[0];
+
+    if (choosedFile) {
+
+        const reader = new FileReader(); 
+
+        reader.addEventListener('load', function(){
+            img.setAttribute('src', reader.result);
+        });
+
+        reader.readAsDataURL(choosedFile);
+
+        //Allright is done
+
+        //please like the video
+        //comment if have any issue related to vide & also rate my work in comment section
+
+        //And aslo please subscribe for more tutorial like this
+
+        //thanks for watching
+    }
+});
 function logoutbutn(){
             document.location.href="/logout";
       
 
         }
-    </script>
- 
+        function profilebutn(){
+            document.location.href="/profileUser";
+        }
+   </script>
+  
 </body>
 </html>

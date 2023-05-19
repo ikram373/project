@@ -1,10 +1,13 @@
 
 const { string } = require("joi");
 const  mongoose  = require("mongoose");
+const { resolve } = require("path");
 const schemaMet=mongoose.Schema({
     id:String,
     metier:String,
     value:Number,
+    icon:String,
+    photo:String,
     // value:number,
     
 })
@@ -46,5 +49,27 @@ exports.getwilaya=()=>{
 
         })
         
+    })
+}
+
+exports.add_met=(icon,name)=>{
+    return new Promise((resolve,reject)=>{
+        mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>{
+        
+            if(!icon||!name){
+                reject('entre touts les champs')
+            }else{
+                
+                let met=new Metier({
+                    metier:name,
+                    icon:icon,
+                })
+                met.save();
+                resolve('metier bien ajouter')
+            }
+        }).catch((err)=>{
+            console.log(err)
+        })
+
     })
 }

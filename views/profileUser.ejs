@@ -19,25 +19,31 @@
                 <li><a href="accueil" class="nav-item">Accueil</a></li>
                 <li><a href="posteService" class="nav-item">Postez un service</a></li>
             </ul>
+            <!-- <form  action="/rechFullname" method="post" enctype="multipart/form-data"> -->
             <div class="search">
-                    <i class="fas fa-search icon"></i>
-                    <input class="input" type="text" placeholder=" Recherche " name="usrnm">
+                    <!-- <i class="fas fa-search icon"></i>
+                    <input class="input" type="text" placeholder=" Recherche " name="usrnm"> -->
+                    
+                    <button class="btn-vt1"><img src="/Vector.png" alt=""></button><div class="search"> <input type="text"  placeholder="Recherche" name="fullname"/></div>
                   </div>
-            <ul> 
-                <li><a href="#" class="nav-item">Notification</a></li>
+                <!-- </form> -->
+            <!-- <ul> 
+                <li><a href="#" class="nav-item">Notification</a></li> 
+                
               
                 
-            </ul>
+            </ul> -->
             
             <div class="button">
                 <button class="profile" onclick="profile( )">profile</button>
+                <button class="profile1" onclick="logoutbutn( )">Se Déconnecter</button>
                
             </div>
         </nav>
 
 <div class="first">
 
-  <div class="imgg"> <img src="\av.png" alt="" class="avatar"><br>
+  <div class="imgg"> <img src="/<%= users.photo_profille %>" alt="" class="avatar"><br>
     <h1><%= users.fullname %> </h1></div> 
 <div class ="non"><b> <%= users.email %> </b></div>
 <div class="mod"><button class="mdf" onclick="modifier( )">Modifier le profile</button> </div>
@@ -49,29 +55,35 @@
     <center>
 <button class="ab">Abonnements</button>
 
-    <button class="eng" onclick="enrg()">Enregistrements</button>
+    <!-- <button class="eng" onclick="enrg()">Enregistrements</button> -->
 </center>
 </div>
 <div class="following"></div>
+<%for (let abn of tab){%>
 <div class="list">
     <div class="imggg"></div> 
       <div class="content"> 
-     <h1>person</h1>
+     <h1><%=abn.fullname%></h1>
+     <p><%=abn.metier%></p>
+     </div>
+     <form action="/SedesabonnerU" method="post"> 
+     <div class="follow">  
+        <input type="text" hidden value="<%= abn._id %>" name="id">
+    <button class="follow">Se désabonner</button></div>
+    </form>
+</div>
+<%}%>
+
+<!-- <div class="list">
+    <div class="imggg"></div> 
+      <div class="content"> 
+     <h1>person7</h1>
      <p>categorie de travail</p>
      </div>   
      <div class="follow">
     <button class="follow">Se désabonner</button></div>
-</div>
-<div class="list">
-    <div class="imggg"></div> 
-      <div class="content"> 
-     <h1>person2</h1>
-     <p>categorie de travail</p>
-     </div>   
-     <div class="follow">
-    <button class="follow">Se désabonner</button></div>
-</div>
-<div class="list">
+</div> -->
+<!-- <div class="list">
     <div class="imggg"></div> 
       <div class="content"> 
      <h1>person3</h1>
@@ -79,7 +91,7 @@
      </div>   
      <div class="follow">
     <button class="follow">Se désabonner</button></div>
-</div>
+</div> -->
 
 
 </div>
@@ -98,7 +110,11 @@
 function enrg(){
     document.location.href="desc6";
 }
+function logoutbutn(){
+            document.location.href="/logout";
+      
 
+        }
     
 
 </script>

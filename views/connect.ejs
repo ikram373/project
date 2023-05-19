@@ -18,7 +18,7 @@
       
             <ul>
                 <li><a href="accueil" class="nav-item">Accueil</a></li>
-                <li><a href="#" class="nav-item">Trouvez un artisan</a></li>
+                <li><a href="recherche" class="nav-item">Trouvez un artisan</a></li>
                 <li><a href="#" class="nav-item">A propos de nous</a></li>
                 <li><a href="#" class="nav-item">Contactez nous</a></li>
                 
@@ -42,12 +42,12 @@
             <form class="sign" action="/connect" method="post">
             <h1><b>Se connecter</b></h1>
             <br>
-            <%if (message.length > 0) { %>
+            <!-- <%if (message.length > 0) { %>
                 <div class="alert alert-danger" role="alert">
                     
                   <%= message %>
                 </div>
-                <% } %>
+                <% } %> -->
             <div class="form">
                 Nom d'utilisateur
                 <div class="input-container">
@@ -63,6 +63,12 @@
                      <i class="fa fa-key icon"></i>
                      <input class="input-field" type="password" placeholder="Mot de passe" name="password"id="password"   required>
                    </div>
+                   <%if (message.length > 0) { %>
+                    <div class="alert alert-danger" role="alert">
+                        
+                      <%= message %>
+                    </div>
+                    <% } %>
                    
                    
                     <button type="submit" class="bo"><b>Se connecter</b></button><br><br>

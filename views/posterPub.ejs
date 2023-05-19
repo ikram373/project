@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/aa9b0d42bd.js" crossorigin="anonymous"></script>  
+
+    <link rel="stylesheet" href="poster-service.css">
+    <title>Poster un service </title>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo"><img src="/Algerian Crafters (5).png" alt=""></div>
+                  
+            <ul>
+                <li><a href="accueil" class="nav-item">Accueil</a></li>
+                <li><a href="posterPub" class="nav-item">Postez un service</a></li>
+            </ul>
+            <!-- <form  class="search1"action="/rechFullname" method="post"> -->
+            <div class="search">
+                <button class="btn"><i class="fas fa-search icon"></i></button>
+                    <input class="input" type="text" placeholder=" Recherche " name="fullname">
+                  </div>
+                <!-- </form> -->
+            <ul> 
+                <li><a href="#" class="nav-item">Trouver un Artisan</a></li>
+              
+                
+            </ul>
+            
+            <div class="button">
+                <button class="profile"onclick="profilebutn()">profile</button>
+               
+            </div>
+        </nav>
+        
+        <div class="box-contain">
+            <h1 class="poster-service">Poster un Service</h1>
+            <p class="ajout-photo">
+                <p class="add-img">Ajouter une photo</p>
+
+                <form action="posterPub" method="post" enctype="multipart/form-data">
+                <div class="profile-pic-div">
+                    <img src="/plus[1].svg" id="photo">
+                    <input type="file" id="file" name="image">
+                    <label for="file" id="uploadBtn"></label>
+                  </div>
+                  <!-- fin -->
+                
+                    <p class="description">Ajouter une description </p>
+                    <input type="text"  placeholder="Description . . ." name="description">
+                
+                <button class="poster" type="submit">Poster</button>
+            </form>
+            </p>
+        </div>
+    </div>
+   
+    <script>
+function profilebutn(){
+            document.location.href="/profileUser";
+      
+
+        }
+        function logoutbutn(){
+            document.location.href="/logout";
+      
+
+        }
+const imgDiv = document.querySelector('.profile-pic-div');
+const img = document.querySelector('#photo');
+const file = document.querySelector('#file');
+const uploadBtn = document.querySelector('#uploadBtn');
+
+
+imgDiv.addEventListener('mouseenter', function(){
+    uploadBtn.style.display = "block";
+});
+
+
+imgDiv.addEventListener('mouseleave', function(){
+    uploadBtn.style.display = "none";
+});
+
+
+
+file.addEventListener('change', function(){
+   
+    const choosedFile = this.files[0];
+
+    if (choosedFile) {
+
+        const reader = new FileReader(); 
+
+        reader.addEventListener('load', function(){
+            img.setAttribute('src', reader.result);
+        });
+
+        reader.readAsDataURL(choosedFile);
+
+      
+    }
+});
+    </script>
+</body>
+</html>

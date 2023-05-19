@@ -4,115 +4,166 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/aa9b0d42bd.js" crossorigin="anonymous"></script>  
-    <link rel="stylesheet" href="rech.css">
-    <title>racherche</title>
+    <link rel="stylesheet" href="/rechercher.css">
+    <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <nav>
-            <div class="logo"><img src="/Algerian Crafters (5).png" alt=""></div>
-          
-                <ul>
-                    <li><a href="accueil" class="nav-item">Accueil</a></li>
-                    <%if(verifUser){%>
-                    <%if (role=="user"){%>
-                    <li><a href="posteService" class="nav-item">Postez un service</a></li>
-                   <% }else{%>
-                    <!-- <li><a href="posteService" class="nav-item">Artisan</a></li> -->
-                    <% }%>
-                    <% }%>
-                   
-                </ul>
-                <div class="search">
-                        <i class="fas fa-search icon"></i>
-                        <input class="input" type="text" placeholder=" Recherche . . ." name="usrnm">
-                </div>
-                <!-- <ul> 
-                    <li><a href="#" class="nav-item">Notification</a></li>
-                  
-                    
-                </ul> -->
-               <% if(verifUser){%>
-                <div class="button">
-                    <button class="profile"onclick="profilebutn()">profile</button>
-                   
-                </div>
-                <div class="button">
-                    <button class="profile"onclick=" logoutbutn()">logout</button>
-                   
-                </div>
-            <%}else{%>
-                <div class="button">
-                    <button class="profile"onclick="inscrirebutn()">S'inscrire</button>
-                   
-                </div>
-                <div class="button">
-                    <button class="profile"onclick="connectbutn()">Se connecter</button>
-                   
-                </div>
-            <%}%>
-            </nav>
-            <form action="/recherche" method="post">
-            <div class="containerbox">
-                <p class="searchby">Recherche par:</p>
-                <p class="wil">Wilaya</p>
-            <div class="wilaya-select">
+        <div class="nv-bar">
+            <img src="/Algerian Crafters (5).png" />
+            <a  href="accueil" class="acc">Accueil</a>
+            <%if(verifUser){%>
+                <%if (role=="user"){%>
+            <a href="posteService" class="acc">Postez un service</a>
+            <% }else{%>
+                <a href="posterPub" class="acc">Postez un service</a>
+            <% }%>
+            <% }%>
+            
+            <form  action="/rechFullname" method="post">
+            <button class="btn-vt1"><img src="/Vector.png" alt=""></button><div class="search"> <input type="text"  placeholder="Recherche" name="fullname"/></div>
+        </form>
+            <div class="signup">
+                <% if(verifUser){%>
+            <!-- <button class="log"onclick=" logoutbutn()" >Log Out</button>
+            <button class="log"onclick="profilebutn()">Profile</button> -->
+            <div class="button">
+                <button class="profile" onclick="profilebutn()">profile</button>
+                <button class="profile1" onclick="logoutbutn( )">Se Déconnecter</button>
                
+            </div>
+            <%}else{%>
+            <button class="profile"onclick="inscrirebutn()">S'inscrire</button>
+            <button class="profile1"onclick="connectbutn()">Se connecter</button>
+            <%}%>
+        </div>
+    </div>
+        <div class="cont-middle">
+            <form  class="res" action="/recherche" method="post">
+            
+                <div class="ttl"><p>Rechercher par :</p></div>
+                <span class=" ttl-1">Categories :</span>
+                <!-- <input class=" ttl-inp " type="text" placeholder="Categories"/> -->
+                <select  id ="metchoose" name="metchoose" class=" select-category">
+                    <option value=0 hidden>Catégories</option>
+                    <% for(let met of metiers){ %>
+                        <option value="<%= met.metier %>"><%= met.metier %></option>
+                        <% } %>  
+                    </select>
+                <!-- <select id="wlychoose" name="wlychoose" class="select-wilaya">
+                    <option value=0 hidden>Wilaya</option>
+                    <% for(let wly of wilaya ){ %>
+                        <option value="<%= wly.nom %>"> <%= wly.nom %></option>
+                        <% } %>   
+                    </select> -->
+                <span class=" ttl-1">Wilaya :</span>
+                <!-- <select class=" ttl-inp" type="text" placeholder="Wilaya"></select> -->
                 <select id="wlychoose" name="wlychoose" class="select-wilaya">
                     <option value=0 hidden>Wilaya</option>
                     <% for(let wly of wilaya ){ %>
                         <option value="<%= wly.nom %>"> <%= wly.nom %></option>
                         <% } %>   
                     </select>
-           </div>
-                <p class="wilaya">Wilaya</p>
-                <p class="cat">Catégorie</p>
-           <div class="category-select">
-               
-            <select  id ="metchoose" name="metchoose" class=" select-category">
-                <option value=0 hidden>Catégories</option>
-                <% for(let met of metiers){ %>
-                    <option value="<%= met.metier %>"><%= met.metier %></option>
-                    <% } %>  
-                </select>
+                <button class="btn-res" type="submit">Recherche</button>
+            
+            </form>
+            <div class="post-job">
+                <% for(let arts of art){ %>
+                <a href="/profile/<%= arts._id %>" class="casee">
+                <div class="case">
+                    <div class="job"><p><%= arts.metier %></p></div>
+                    <%if(arts.metier=='Maçon'){%>
+                    <img  class=" pic-job" src="/emma-houghton-EixJzIdl4bc-unsplash.jpg"/>
+                    <% }else{%>
+                   
+                        <%if(arts.metier=="Menuisier"){%>  
+                            <img  class=" pic-job" src="/chris-briggs-ILBrHd6PFJA-unsplash.jpg"/>
+                            <% }else{%>
+                    
+                        <%if(arts.metier=="Soudeur"){%>  
+                            <img  class=" pic-job" src="/syd-mills-Eq-bV3cbsro-unsplash.jpg"/>
+                            <% }else{%>
+                            
+                                <img  class=" pic-job" src="/chris-briggs-ILBrHd6PFJA-unsplash.jpg"/>
+                                
+                                <% }%>
+                                <% }%>
+                                <% }%>
+                         
+                    <div class="info"><p><%= arts.fullname %></p>
+                        <p><%= arts.wilaya %></p></div>
+                </div>
+            </a>
+            <% }%>
+                <!-- <div class="case">
+                    <div class="job"><p>Souduer</p></div>
+                    <img  class=" pic-job" src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/>
+                    <div class="info"><p>Mohamed benariba</p>
+                        <p>Oran - 31</p></div>
+                </div> -->
+                <!-- <div class="case">
+                    <div class="job"><p>Souduer</p></div>
+                    <img  class=" pic-job" src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/>
+                    <div class="info"><p>Mohamed benariba</p>
+                        <p>Oran - 31</p></div>
+                </div> -->
+                <!-- <div class="case">
+                    <div class="job"><p>Souduer</p></div>
+                    <img  class=" pic-job" src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/>
+                    <div class="info"><p>Mohamed benariba</p>
+                        <p>Oran - 31</p></div>
+                </div> -->
+                <!-- <div class="case">
+                    <div class="job"><p>Souduer</p></div>
+                    <img  class=" pic-job" src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/>
+                    <div class="info"><p>Mohamed benariba</p>
+                        <p>Oran - 31</p></div>
+                </div> -->
+                <!-- <div class="case">
+                    <div class="job"><p>Souduer</p></div>
+                    <img  class=" pic-job" src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/>
+                    <div class="info"><p>Mohamed benariba</p>
+                        <p>Oran - 31</p></div>
+                </div> -->
+                <!-- <div class="case">
+                    <div class="job"><p>Souduer</p></div>
+                    <img  class=" pic-job" src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/>
+                    <div class="info"><p>Mohamed benariba</p>
+                        <p>Oran - 31</p></div>
+                </div> -->
+                <!-- <div class="case">
+                    <div class="job"><p>Souduer</p></div>
+                    <img  class=" pic-job" src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/>
+                    <div class="info"><p>Mohamed benariba</p>
+                        <p>Oran - 31</p></div>
+                </div> -->
+                <!-- <div class="case">
+                    <div class="job"><p>Souduer</p></div>
+                    <img  class=" pic-job" src="/businessman-climbing-with-his-fingers-up-steps-spelling-word-goal-conceptual-image-business-vision-ambition.jpg"/>
+                    <div class="info"><p>Mohamed benariba</p>
+                        <p>Oran - 31</p></div>
+                </div> -->
             </div>
-            <button type="submit" class="recherche">Recherche</button> 
         </div>
-    </form>
-           
-            
-            <div class="images">
-               
-                <section class="d-col">
-                    <% for(let arts of art){ %>
-                        
-                    <div class="card1" >
-                        <h4 class="one"><%= arts.metier %> </h4>
-                        <div class="rate">
+        <!-- <div class="footter">
+            <div class="fst">
+                <span>Company</span>
+                <span>Company Of Algerian Crafters</span>
+            </div>
+            <div class="fst">
+                <span>Get Help</span>
+                <span>Contactez nous</span>
+                <span>Our Email : N.Belkadi@Esi-sba.dz</span>
+                <span>Our Number : 0548789836</span>
+            </div>
+            <div class="fst">
+                <span>Fllow Us</span>
+            </div>
+        </div> -->
 
-                            <h3><a href="/profile/<%= arts._id %>"><%= arts.fullname %></a></h3>
-                           
-                            <p class="local"><i class="fa-solid fa-location-dot"><%= arts.wilaya %></i> </p>
-                             <div class="star-rate">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                </div>
-                            </div>
-                    </div>
-               
-                    <% }%>
-                </section>
-            
-                
-            </div>
-            </div>
- 
+    </div>
+
+    
 </body>
 <script>
       function connectbutn(){
@@ -134,6 +185,4 @@
 
         }
 </script>
-</html> 
-
-
+</html>

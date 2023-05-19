@@ -5,86 +5,281 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/aa9b0d42bd.js" crossorigin="anonymous"></script>
-    <title>Profile-Page</title>
-    <link rel="stylesheet" href="/profile.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Document</title>
+    <link rel="stylesheet" href="/profile-user.css">
 </head>
 <body>
     <div class="container">
-        <nav>
+        <header>
             <div class="logo"><img src="/Algerian Crafters (5).png" alt=""></div>
           
-                <ul class="first">
-                    <li><a href="/accueil" class="nav-item1">Accueil</a></li>
-                    <li><a href="/posteService" class="nav-item2">Poster un service </a></li>
-                
+                <ul>
+                    <li><a href="/accueil" class="nav-item">Accueil</a></li>
+                    <li><a href="/posteService" class="nav-item">Postez un service</a></li>
                 </ul>
-                <ul class="second">
-                    <li><a href="#" class="nav-item3">Notification</a></li>
-                    <li><a href="/profileUser" class="nav-item4">Profile</a></li> 
-                </ul>
-                <div class="search-container">
-                    <form action="page.php" class="search-bar">
-                        <i class="fa fa-search"></i>
-                      <input type="text" placeholder="Search.." name="search" class="input">
-                      <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
-                    </form>
-                </div>
-
-            </nav>
-            <div class="contain">
-            <div class="description">
-                <p class="profile"> Photo de Profile</p>
-                <h3 class="full-name"><%= artisan.fullname %> </h3>
-                <h3 class="métier">
-                    <%= artisan.metier %>
-                </h3>
-                <h3 class="wilaya"><i class="fa-solid fa-location-dot"></i> <%= artisan.wilaya %> </h3>
-                <p class="number-phone"><i class="fa-solid fa-phone"></i>0549545881</p>
+                <div class="search">
+                    <i class="fas fa-search icon"></i>
+                    <input class="input" type="text" placeholder=" Recherche . . ." name="usrnm">
             </div>
-            <div class="description2">
-                <p class="user-name"><%= artisan.email %> e</p>
-                <button class="abonne-button">S'abonner</button>
-                <div class="star-rate">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
+                
+                <div class="button">
+                    <button class="profile1"onclick="profilebutn()">Profile</button>
+                   
+                </div>
+                <ul> 
+                    
+                    <div class="button">
+                        <button class="dec" onclick="logoutbutn()">Se Déconnecter </button>
+                       
                     </div>
-                <p class="pub">
-                    nombre de publication
-                </p>
-                <p class="abonne">
-                    nombre d'abonnés
-                </p>
-                <p class="abonnement">
-                    nombre d'abonnement 
-                </p>
-                
+                    
+                </ul>
+        </header> 
+        <div class="contain">
+            <div class="description">
+                <div class="profile-pic-div">
+                    <img class="photoprofile" src="/<%= artisan.photo_profille%>" alt=""  >
+                    
+                  </div>
+                  <div class="vart"></div>
+        <div class="info">
+            <p class="profile"> Photo de Profile</p>
+            <!-- <button class="abonne-button">S'abonner</button> -->
+
+            <h3 class="full-name"><%= artisan.fullname %> </h3>
+            <h3 class="métier">
+                <%= artisan.metier %>
+            </h3>
+            <h3 class="wilaya"><i class="fa-solid fa-location-dot"></i> <%= artisan.wilaya %></h3>
+            <p class="number-phone"><i class="fa-solid fa-phone"></i><%= artisan.numero %></p>
+            <div class="note">
+                <button class="stars">&#9734</button>
+                <button class="stars">&#9734</button>
+                <button class="stars">&#9734</button>
+                <button class="stars">&#9734</button>
+                <button class="stars">&#9734</button>
+            </div>
+        </div>  
+        <!-- <hr class="line"></hr> -->
+        <div class="side-nav">
+            <nav>
+                <ul>
+                    <li class="active" onclick="show(0)">
+                        <span><i  class="fa fa-cog"></i></span>
+                        <h3>Services</h3>
+                    </li>
+                    <li onclick="show(1)">
+                        <span><i class="fa-solid fa-circle-exclamation"></i></span>
+                        <h3>Signaler</h3>
+                    </li>
+                    <li  onclick="show(2)">
+                        <span><i class="fa-solid fa-house-user"></i></span>
+                        <h3>Noter</h3>
+                    </li>
+                    <li  onclick="show(3)">
+                        <span><i  class="fa fa-comment"></i></span>
+                        <h3>Commentaires</h3>
+                    </li>
+                </ul>
+                <%if(verifierAbo){%>
+                <form action="/Sedesabonner" method="post" >
+                    <input type="text" hidden value="<%= artisan._id %>" name="id">
+                <button class="abonne-button">Se désabonner</button>
+            </form>
+            <%}else{%>
+            <form action="/Sabonner" method="post" >
+                <input type="text" hidden value="<%= artisan._id %>" name="id">
+            <button class="abonne-button">S'abonner </button>
+        </form>
+        <%}%>
+                <hr>
+                <div class="nombre">
+                    <div class="abonne">
+                        <br>
+                        <h4>nombre d'abonné</h4>
+                        <p><%=artisan.nombre_abonnes%></p>
+                    </div>
+                    <div class="abonnement">
+                        <br>
+                        <h4>nombre d'abonnement</h4>
+                        <p><%=artisan.nombre_abonnement%></p>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+    <div class="main">
+        <section class="tabs">
+            <h1 class="service" >Les Services</h1>
+            <h3 class="nbpub">Nombre de publication : <%= artisan.nombre_pub%></h3>
+    
+            <div class="user-posts">
+                <% for(let pub of artisan.pub){%>
+               
+                <div class="posts">
+                   <img width="200" src="/<%= pub[0]%>" alt="">
+                   <h3 class="travail"><%= pub[1]%> </h3> 
+                </div>
+                <%}%>
+                <!-- <div class="posts">
+                    <img width="200" src="../imgs/chris-briggs-ILBrHd6PFJA-unsplash.jpg" alt="">
+                    <h3 class="travail"> je faits ces tables Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reprehenderit!</h3> 
+    
+                </div> -->
+               
+                 
+    
+            </div>
+         
+    
+        </section>
+        <section class="tabs">
+            <div class="box-contain">
+                <h2 class="title">Signlaer Un Artisan </h2>
+                <form action="/signale" method="post" id="sig">
+                    <div class="grid1">
+                        <img src="/website-maintenance[1].svg" alt="" width="100" height="100" class="support-center">
+        
+                    </div>
+                   <div class="grid2">
+                    <p class="raison">Entrer votre raison de signale :</p>
+                    <div class="content">
+                  
+                      <label class="container">
+        
+                        <input type="checkbox" name="raison" value="Faux Compte">  Faux Compte
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">
+                        <input type="checkbox" name="raison" value="Numéro de téléphone inaccessible">  Numéro de téléphone inaccessible
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">
+                        <input type="checkbox" name="raison" value="Il poste des choses hors domaine">Il poste des choses hors domaine
+                        <span class="checkmark"></span>
+                      </label>
+                      <input type="text" hidden value="<%= artisan._id%>" name="ida" id="">
+                    </div>
+        
+                    <button class="poster" onclick="sendChecked()">Signaler</button>
+                </form>
+            </div>
+        
+            </div>
+            <!-- <button class="poster">Signaler</button> -->
+        </section>
+        <section class="tabs">
+            <div class="parent2">
+            <h1 class="rating_heading">5 Star Rating</h1>
+    
+            <div class="star-rating">
+                <button class="star">&#9734</button>
+                <button class="star">&#9734</button>
+                <button class="star">&#9734</button>
+                <button class="star">&#9734</button>
+                <button class="star">&#9734</button>
+                <p class="current_rating">0 of 5</p>
             </div>
         </div>
-        <div class="rate">
-            <h3 class="travail"> je faits ces tables Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reprehenderit!</h3> 
-        </div>
-        <div class="rate2">
-            <h3 class="travail2"> je faits ces tables Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reprehenderit!</h3> 
-        </div>
-        <div class="rate3">
-            <h3 class="travail3"> je faits ces tables Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, reprehenderit!</h3> 
-        </div>
-           <div class="rate-commentaire">
-               <h1>Commenntaires/Rate</h1>
-               <div class="star-rate">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
+        </section>
+        <section class="tabs">
+            <div class="parent3">
+                <div class="commentaire">
+                    <h4 class="comm">Commenntaires</h4>
+                   
+                    <p class="person">person_commenté</p>
+                    <form action="/commentaire" method="post">
+                        <input type="text" hidden value="<%= artisan._id %>" name="id">
+                     <input type="text" placeholder="Commentaire" class="comment" name="commente" >
+                     <button><img src="/share.png" alt="" width="20" class="share"></button>
+                    </form>
+                 
+                    </div>
+                  
                 </div>
-               <p class="person">person_commenté</p>
-               <button class="comment"> commentaire</button>
-
-           </div>
+     
+        </section>
+     
+      
+        
     </div>
+        </div>
+      
+    </div>
+    <script>
+        $(".side-nav nav ul li").click(function(){
+            $(this).addClass(".active").siblings().removeClass(".active");  
+        })
+     
+    </script>
+    <script>
+                       const tbtn=document.querySelectorAll(".side-nav nav ul li")
+const tab=document.querySelectorAll(".tabs");
+function show(panelIndex){
+    tab.forEach(function(node){
+        node.style.display="none";
+    })
+    tab[panelIndex].style.display="block";
+}
+    show(0);
+        const allStars = document.querySelectorAll(".star");
+        let current_rating =document.querySelector('.current_rating');
+        allStars.forEach((star,i)=>{
+            star.onclick =function(){
+                let current_star_level=i + 1;
+                current_rating.innerText= `${current_star_level} of 5`;
+                allStars.forEach((star,j)=>{
+                    if (current_star_level >= j+1){
+                        star.innerHTML ='&#9733';
+                    }else{
+                        star.innerHTML ='&#9734'
+                    }
+                })
+            }
+        })
+        function sendChecked(){
+    var checkedBoxes=[]
+    var markedCheckbox=document.getElementsByName('raison');
+    for(var checkbox of markedCheckbox){
+        if(checkbox.checked){
+            checkedBoxes.push(checkbox.value)
+        }
+    }
+    console.log(checkedBoxes)
+    var input=document.createElement("input");
+    input.setAttribute("type","hidden")
+    input.setAttribute("name","checkedvalues");
+    input.setAttribute("value",checkedBoxes);
+    var form=document.getElementById("sig")
+    form.appendChild(input)
+    form.submit();
+    
+    
+    }
+        function Sedesabonner(){
+                document.location.href="/Sedesabonner";
+          
+    
+            }
+            function Sabonner(){
+                document.location.href="/Sabonner";
+          
+    
+            }
+            function profilebutn(){
+            document.location.href="/profileUser";
+      
+
+        }
+        function logoutbutn(){
+            document.location.href="/logout";
+      
+
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/aa9b0d42bd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
+    ">
+    <title>Add Category</title>
+    <link rel="stylesheet" href="/addcategory.css">
+    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
+    ">
+</head>
+<body>
+ <div class="continer">
+ 
+
+
+     <div class="parent">
+
+    
+     <div class="sidebar">
+         
+        <div class="boxshadow">
+            <section class="second-div">
+            
+                <div class="card-list">
+                    <%for (let met of metiers){%>
+                <div class="card card1">
+                    <h4 class="one">  <%=met.metier%></h4>
+                    <img src="/<%=met.icon%>" alt="" class="plombier">
+                    <!-- <h3 id="c1">05</h3> -->
+                </div>
+                <%}%>
+                <!-- <div class="card card2">
+                    <h4 class="two">Menuisier</h4>
+                    <h3 id="c2">03</h3>
+                    <img src="/hammer.png" alt="" class="menuisier">
+                </div> -->
+                <!-- <div class="card card3">
+                    <h4 class="three">maçon</h4>
+                    <h3 id="c3">05</h3>
+                    <img src="/handsaw.png" alt="" class="macon">
+                </div> -->
+                <!-- <div class="card card4">
+                    <h4 class="four">Peintre</h4>
+                    <h3 id="c4">07</h3>
+                    <img src="/paint-brush.png" alt="" class="peintre">
+                </div> -->
+                <!-- <div class="card card5">
+                    <h4 class="five">Mécanicien</h4>
+                    <h3 id="c5">06</h3>
+                    <img src="/toolkit(1).png" alt="" class="mecan">
+                </div> -->
+            </div>
+        
+            </section> 
+            <button class="addcat">Ajouter une Catégories</button>
+ 
+          </div>
+          <div class="popup">
+            <form action="/addCategorie" method="post" enctype="multipart/form-data">
+              <div class="popup-content">
+                  <h3 class="category">Ajouter une Catégories</h3>
+                  <p class="nom-cat">Catégories</p>
+                  <input type="text " placeholder="Catégories" name="metier">
+                  <p class="icon-cat">Icon</p>
+                  <div class="icon-cat-box">
+                    <div class="profile-pic-div">
+                        <img src="/plus[1].svg" id="photo">
+                        <input type="file" id="file" name="image">
+                        <label for="file" id="uploadBtn"></label>
+                      </div>                    <button class="valider" type="submit">Ajouter</button>
+                    <img src="/close.png" class="close" alt="">
+                  </div>
+              </div>
+            </form>
+          </div>
+         <div class="cat">
+            <p class="catégory">Catégories</p>
+       
+        </div>
+         <div class="main"><p><a href="accueil" class="mainsite">Ouvrire le site principale</a></p><i class="fa-solid fa-up-right-from-square"></i></div>
+
+         <!-- <div class="admin"><button class="adminstrateur" onclick="logoutbutn()">Se déconnécté </button></div> -->
+         <li> <button class="dec" onclick="logoutbutn()">Se déconnecter </button> </li> 
+     </div>
+     
+        <div class="contain">
+            
+            <nav>
+            <div class="logo"><a href="accueil"></a><img src="/Algerian Crafters (5).png" alt=""><p><b>Admin DEMO</b></p></div>
+      
+            <ul>
+            <div class="icon">   <li><i class="fas fa-chart-pie fa-2x"></i><br><a href="admin" class="nav-item">Tableau de bord</a></li></div>
+               
+            <div class="icon"> <li><i class="fab fa-buromobelexperte fa-2x"></i><br><a href="addcatego" class="nav-item">Catégories</a></li></div>
+            <div class="icon"> <li><i class="fas fa-user-circle fa-2x"></i><br><a href="users" class="nav-item">Utilisateurs</a></li></div>
+            <div class="icon"> <li><i class="fa fa-bullhorn fa-2x"></i><br><a href="bannir" class="nav-item">Bannières</a></li></div>
+            <!-- <div class="icon"> <li ><i class="fas fa-user-alt fa-2x"></i><br><a href="#" class="nav-item">Admins</a> </li></i> </div>   -->
+    
+    
+            </ul>
+    
+        </nav>
+   
+        </div>
+  
+    </div>
+  
+ </div>
+ <script>
+
+     document.querySelector(".addcat").addEventListener("click", function(){
+         document.querySelector(".popup").style.display ="flex";
+     })
+     document.querySelector(".close").addEventListener("click", function(){
+         document.querySelector(".popup").style.display="none";
+     })
+
+const imgDiv = document.querySelector('.profile-pic-div');
+const img = document.querySelector('#photo');
+const file = document.querySelector('#file');
+const uploadBtn = document.querySelector('#uploadBtn');
+
+
+imgDiv.addEventListener('mouseenter', function(){
+    uploadBtn.style.display = "block";
+});
+
+
+imgDiv.addEventListener('mouseleave', function(){
+    uploadBtn.style.display = "none";
+});
+
+
+
+file.addEventListener('change', function(){
+   
+    const choosedFile = this.files[0];
+
+    if (choosedFile) {
+
+        const reader = new FileReader(); 
+
+        reader.addEventListener('load', function(){
+            img.setAttribute('src', reader.result);
+        });
+
+        reader.readAsDataURL(choosedFile);
+
+      
+    }
+});
+function logoutbutn(){
+            document.location.href="/logout";
+      
+
+        }
+ </script>
+</body>
+</html>

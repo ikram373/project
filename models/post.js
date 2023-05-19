@@ -16,12 +16,15 @@ const service=(token,wly,met,num)=>{
             if(wly==0||met==0||!num){
                 reject("entre toute les information")
             }else{
-                await User.update({_id:id},{$set:{role:"artisan",numero:num,wilaya:wly,metier:met}})
-                // await ajouter.ajouterartisan();
-                resolve('true')
-            }
-          
-            
+                if(num.length!=10){
+                    reject('numéro incorrect')
+                }else{
+                    
+
+                    
+                await User.update({_id:id},{$set:{role:"artisan",numero:num,wilaya:wly,metier:met,nombre_pub:0,nombre_abonnes:0,nombre_abonnement:0}})
+               
+                resolve('true')}}  
         }).catch((err)=>{
             console.log(err);
         })
